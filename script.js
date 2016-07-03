@@ -15,6 +15,15 @@
 
 	var input = document.getElementById('input');
 
+
+	 var autocomplete = new google.maps.places.Autocomplete(input);
+	  autocomplete.addListener('place_changed', function(){
+	  	var place = autocomplete.getPlace();
+
+	  })
+
+
+
 	// var input = document.getElementById('input');
 	// input.oninput= function(){
 	// 	var autocomplete = new google.maps.places.Autocomplete(input);
@@ -24,10 +33,6 @@
 	//   })
 
 	// }
-
-
-
-
 
 
 	// map._on('click', function(e){
@@ -44,22 +49,22 @@
 
 	//map.addMarker(40.836422, -74.269141, true);
 
-	var marker = map.addMarker({
-		lat: 40.836422,
-		lng: -74.269141,
-		draggable: false,
-		id: 1,
-		icon: 'http://maps.google.com/mapfiles/kml/paddle/5.png',
-		content: `
-			<h2>Home Sweet Home</h2>
-			<div id="info">
-				<p>This is a good place to eat. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+	// var marker = map.addMarker({
+	// 	lat: 40.836422,
+	// 	lng: -74.269141,
+	// 	draggable: false,
+	// 	id: 1,
+	// 	icon: 'http://maps.google.com/mapfiles/kml/paddle/5.png',
+	// 	content: `
+	// 		<h2>Lorem Ipsum is simply dummy text</h2>
+	// 		<div id="info">
+	// 			<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
 
-				<br>
-				<a href="www.apple.com" class="infoLink">Elm Road</a>
-			</div>
-		`
-	});
+	// 			<br>
+	// 			<a href="www.apple.com" class="infoLink">Elm Road</a>
+	// 		</div>
+	// 	`
+	// });
 
 	// var marker2 = map.addMarker({
 	// 	lat: 40.836422,
@@ -69,7 +74,6 @@
 	// 	content: 'hello'
 	// });
 
-	console.log(Map.markers);
 
 
 //Geocoder
@@ -86,8 +90,8 @@ button = document.getElementById('button');
 				lat: result.geometry.location.lat(),
 				lng: result.geometry.location.lng(),
 				draggable: false,
-				icon: 'http://maps.google.com/mapfiles/kml/paddle/5.png',
-				content: "This is the golden gate bridge"
+				icon: './currentlocation.png',
+				content: "Your current location"
 			});
 		input.value = result.formatted_address;
 
@@ -121,13 +125,14 @@ function find(result){
             	lat: results[i].geometry.location.lat(),
 					lng: results[i].geometry.location.lng(),
 					draggable: false,
-					content: "This is the nearby restaurant"
+					content: "Put individual infobox text here"
             });
           }
         }
 	});
-
+			console.log('find function success');
 	}
+
 
 
 

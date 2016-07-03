@@ -8,20 +8,45 @@ body{
 	margin: 0;
 }
 
-#map-canvas{
-	height: 80%;
+.settings{
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-.input {
+.option1{
+    display: inline;
+    margin-bottom: 40px;
+}
+
+.option2{
+    display: inline-flex;
+}
+
+#map-canvas{
+	height: 70%;
+}
+
+#input {
         background-color: #fff;
         font-family: Roboto;
         font-size: 15px;
         font-weight: 300;
-        margin-top: 20px;
+        margin-top: 10px;
         margin-left: 12px;
         padding: 0 11px 0 13px;
-        text-overflow: ellipsis;
-        width: 300px;
+        width: 500px;
+        line-height: 40px;
+      }
+
+#button{
+        height: 40px;
+        width: 70px;
+        background-color: black;
+        color: white;
+        font-size: 1em;
+
       }
 
 .find {
