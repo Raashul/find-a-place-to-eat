@@ -1,0 +1,22 @@
+{
+  "name": "maps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Mapster.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Raashul/google-map-search-engine.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Raashul/google-map-search-engine/issues"
+  },
+  "homepage": "https://github.com/Raashul/google-map-search-engine#readme",
+  "dependencies": {
+    "yelp": "^1.0.1"
+  }
+}

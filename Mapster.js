@@ -1,3 +1,5 @@
+//This is a mapter
+
 (function(window, google){
 
 	//this Mapster variable stores a function NOT an object
@@ -87,11 +89,29 @@
 
 			}, // end of createMarker function
 
-			// autocompete: function(){
-			// 	var input = document.getElementById('input');
-			// 	var autocomplete = new google.maps.places.Autocomplete(input);
-			// }
 
+			//creating service.
+			_onService: function(opts){
+
+				var random;
+
+				var service = new google.maps.places.PlacesService(this.gMap);
+				service.nearbySearch(opts, function(results, status){
+
+				var item = results[Math.floor(Math.random()*results.length)];
+				console.log(item.name);
+
+				if (status === google.maps.places.PlacesServiceStatus.OK) {
+
+					map.addMarker({
+						lat: item.geometry.location.lat(),
+						lng: item.geometry.location.lng(),
+					});
+
+        }
+	});
+
+			}
 
 
 

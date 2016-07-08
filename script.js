@@ -86,6 +86,12 @@ button = document.getElementById('button');
 		if(status === google.maps.GeocoderStatus.OK){
 			console.log(results);
 			var result = results[0];
+
+
+			//setting the center of the map to the inputted value.
+			map.gMap.setCenter({lat: result.geometry.location.lat(), lng: result.geometry.location.lng()});
+
+
 			map.addMarker({
 				lat: result.geometry.location.lat(),
 				lng: result.geometry.location.lng(),
@@ -113,24 +119,18 @@ function find(result){
 		lat: result.geometry.location.lat(),
 		lng: result.geometry.location.lng()
 	};
-	var service = new google.maps.places.PlacesService(map.gMap);
-		service.nearbySearch({
-			location: location,
-			radius: 1000,
-			type: ['restaurant']
-		}, function(results, status){
-				if (status === google.maps.places.PlacesServiceStatus.OK) {
-          for (var i = 0; i < results.length; i++) {
-            map.addMarker({
-            	lat: results[i].geometry.location.lat(),
-					lng: results[i].geometry.location.lng(),
-					draggable: false,
-					content: "Put individual infobox text here"
-            });
-          }
-        }
+
+	//This is a loop to check which type of place is to be searched
+	var type;
+
+	//calls the on service method from Mapster.js to locate nearby restaurants.
+	map._onService({
+		location: location,
+		radius: 1000,
+		type: ['restaurant']
 	});
-			console.log('find function success');
+		console.log(type);
+		console.log('find function success');
 	}
 
 

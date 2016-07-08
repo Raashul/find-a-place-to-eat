@@ -5,10 +5,10 @@
 		lat: 40.836422,
 		lng: -74.269141
 		},
-		zoom: 15,
+		zoom: 16,
 		disableDefaultUI: false,
 		//scrollwheel: false,
-		//minZoom:13,
+		minZoom:13,
 		//maxzoom
 		//mapTypeId: google.map.MapTypeId.ROADMAP
 		zoomControlOptions :{
