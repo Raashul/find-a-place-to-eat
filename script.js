@@ -86,6 +86,10 @@ button = document.getElementById('button');
 		if(status === google.maps.GeocoderStatus.OK){
 			console.log(results);
 			var result = results[0];
+
+				//setting the center of the map to the inputted value.
+			map.gMap.setCenter({lat: result.geometry.location.lat(), lng: result.geometry.location.lng()});
+
 			map.addMarker({
 				lat: result.geometry.location.lat(),
 				lng: result.geometry.location.lng(),
