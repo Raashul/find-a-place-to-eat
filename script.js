@@ -13,6 +13,7 @@
 
 	var geocoder = new google.maps.Geocoder();
 
+	//this variable will be the location of the user.
 	var input = document.getElementById('input');
 
 
@@ -21,18 +22,6 @@
 	  	var place = autocomplete.getPlace();
 
 	  })
-
-
-
-	// var input = document.getElementById('input');
-	// input.oninput= function(){
-	// 	var autocomplete = new google.maps.places.Autocomplete(input);
-	//   google.maps.event.addListener(autocomplete, 'place_changed', function(){
-	//   	var places = autocomplete.getplace();
-	//   	console.log(places);
-	//   })
-
-	// }
 
 
 	// map._on('click', function(e){
@@ -120,14 +109,16 @@ function find(result){
 		lng: result.geometry.location.lng()
 	};
 
-	//This is a loop to check which type of place is to be searched
+
 	var type;
 
 	//calls the on service method from Mapster.js to locate nearby restaurants.
 	map._onService({
 		location: location,
 		radius: 1000,
-		type: ['restaurant']
+		type: ['restaurant'],
+		origin: input.value,
+		name: result.formatted_address
 	});
 		console.log(type);
 		console.log('find function success');
@@ -161,7 +152,34 @@ function find(result){
 
 	// });
 
+document.getElementById('getDirection').addEventListener('click', function(){
 
+
+	var directionsService = new google.maps.DirectionsService();
+        var directionsRequest = {
+            origin: "Washington DC",
+            destination: "Caldwell, NJ",
+            travelMode: google.maps.DirectionsTravelMode.DRIVING,
+            unitSystem: google.maps.UnitSystem.METRIC
+        };
+        directionsService.route(
+        directionsRequest,
+        function (response, status) {
+            if (status == google.maps.DirectionsStatus.OK) {
+                new google.maps.DirectionsRenderer({
+                    map: map.gMap,
+                    directions: response
+                });
+            }
+            else
+                $("#lblError").append("Unable To Find Root");
+        }
+    );
+
+
+
+
+});
 
 
 }(window, window.Mapster));
