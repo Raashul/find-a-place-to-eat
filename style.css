@@ -8,6 +8,25 @@ body{
 	margin: 0;
 }
 
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+#footer p{
+    text-align: center;
+}
+
+.center{
+    text-align: center;
+}
+
+.header{
+    top: 40%;
+}
+
+
 .settings{
     width: 50%;
     margin: 0 auto;

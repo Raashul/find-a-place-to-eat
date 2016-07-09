@@ -68,6 +68,7 @@
 								content: opts.content
 							});
 							infoWindow.open(this.gMap, marker);
+
 						}
 					})
 				}
@@ -98,21 +99,62 @@
 				var service = new google.maps.places.PlacesService(this.gMap);
 				service.nearbySearch(opts, function(results, status){
 
-				var item = results[Math.floor(Math.random()*results.length)];
-				console.log(item.name);
+					//PICK ONE RESTAURANT AT RANDOM AND DISPLAY THE MARKER
+					var item = results[Math.floor(Math.random()*results.length)];
+
+					//Restaurant name
+					var yelpName = item.name;
+
+					//restaurant location
+					var yelpLocation = opts.name;
 
 				if (status === google.maps.places.PlacesServiceStatus.OK) {
+
+					//var data = getYelp(yelpName, yelpLocation);
+
+					//manipulate data -> data.buisness[].name
 
 					map.addMarker({
 						lat: item.geometry.location.lat(),
 						lng: item.geometry.location.lng(),
+						content: `
+							<button id='getDirections' onClick = "getDirection()">Click me</button>
+						`
 					});
 
-        }
+
+					//use directions service to display direction
+					var directionsService = new google.maps.DirectionsService();
+			       var directionsRequest = {
+			            origin: "Chicago, IL",
+			            destination: "Caldwell, NJ",
+			            travelMode: google.maps.DirectionsTravelMode.DRIVING,
+			            unitSystem: google.maps.UnitSystem.METRIC
+			        };
+			        directionsService.route(
+			        directionsRequest,
+			        function (response, status) {
+			            if (status == google.maps.DirectionsStatus.OK) {
+			                new google.maps.DirectionsRenderer({
+			                    map: this.gMap,
+			                    directions: response
+			                });
+			            }
+			            else
+			                // $("#lblError").append("Unable To Find Root");
+			             console.log('error');
+			        }
+			    );
+
+
+
+
+
+
+        }// end of if
 	});
 
-			}
-
+			} // end of _onService
 
 
 
