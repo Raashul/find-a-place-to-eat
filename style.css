@@ -8,10 +8,19 @@ body{
 	margin: 0;
 }
 
+.beta{
+    float: left;
+    display: inline-block;
+    color: white;
+    border: 1px solid black;
+    background-color: #C3002F;
+}
+
 #footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+    font-size: 0.9em;
 }
 
 #footer p{
@@ -31,7 +40,7 @@ body{
     width: 50%;
     margin: 0 auto;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .option1{
@@ -45,6 +54,10 @@ body{
 
 #map-canvas{
 	height: 60%;
+}
+
+#modify{
+    font-size: 1.2em;
 }
 
 #input {
