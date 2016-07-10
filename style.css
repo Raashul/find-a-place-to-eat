@@ -44,7 +44,7 @@ body{
 }
 
 #map-canvas{
-	height: 70%;
+	height: 60%;
 }
 
 #input {
@@ -78,6 +78,13 @@ body{
         padding: 0 11px 0 13px;
         text-overflow: ellipsis;
         width: 300px;
+      }
+
+#result{
+        text-align: center;
+        visibility: hidden;
+        margin: 0 auto;
+        padding: 0;
       }
 
 

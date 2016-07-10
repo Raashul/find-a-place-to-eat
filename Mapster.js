@@ -102,11 +102,14 @@
 					//PICK ONE RESTAURANT AT RANDOM AND DISPLAY THE MARKER
 					var item = results[Math.floor(Math.random()*results.length)];
 
+
+
 					//Restaurant name
 					var yelpName = item.name;
 
 					//restaurant location
 					var yelpLocation = opts.name;
+
 
 				if (status === google.maps.places.PlacesServiceStatus.OK) {
 
@@ -114,44 +117,78 @@
 
 					//manipulate data -> data.buisness[].name
 
-					map.addMarker({
-						lat: item.geometry.location.lat(),
-						lng: item.geometry.location.lng(),
-						content: `
-							<button id='getDirections' onClick = "getDirection()">Click me</button>
-						`
-					});
+					// map.addMarker({
+					// 	lat: item.geometry.location.lat(),
+					// 	lng: item.geometry.location.lng(),
+					// 	content: `
+					// 		<button id='getDirections' onClick = "getDirection()">Click me</button>
+					// 	`
+					// });
 
-
-					//use directions service to display direction
+					var distanceService = new google.maps.DistanceMatrixService();
 					var directionsService = new google.maps.DirectionsService();
-			       var directionsRequest = {
-			            origin: "Chicago, IL",
-			            destination: "Caldwell, NJ",
+
+			      var directionsRequest = {
+			            origin: opts.origin,
+			            destination: item.vicinity,
 			            travelMode: google.maps.DirectionsTravelMode.DRIVING,
 			            unitSystem: google.maps.UnitSystem.METRIC
 			        };
+
 			        directionsService.route(
 			        directionsRequest,
 			        function (response, status) {
 			            if (status == google.maps.DirectionsStatus.OK) {
 			                new google.maps.DirectionsRenderer({
-			                    map: this.gMap,
+			                    map: map.gMap,
 			                    directions: response
 			                });
+
+			                console.log(response.request.destination);
+
 			            }
-			            else
-			                // $("#lblError").append("Unable To Find Root");
-			             console.log('error');
+			            else{
+			                console.log('error');
+			            }
 			        }
 			    );
 
 
+			 		distanceService.getDistanceMatrix(
+					    {
+					        origins: [opts.origin],
+					        destinations: [item.vicinity],
+					        travelMode: google.maps.TravelMode.DRIVING,
+					        avoidHighways: false,
+					        avoidTolls: true
+					    },
+					    callback
+					);
+
+					function callback(response, status) {
+
+					    if(status=="OK") {
+
+					    	console.log(response);
+
+					    	//this is the total distance between two points
+					   	var distance =	response.rows[0].elements[0].distance.text;
+
+					   	//this is the total time between two points by chosen vehicle type
+					    	var time = response.rows[0].elements[0].duration.text;
+
+					    	document.getElementById("restaurantTitle").innerHTML = yelpName;
+
+					    	document.getElementById("modify").innerHTML = "It is "  + distance + " far away. It will take you " + time + " to reach by car";
+					    	document.getElementById("result").style.visibility = "visible";
+
+					    } else {
+					        alert("Error: Try Again ");
+					    }
+					}
 
 
-
-
-        }// end of if
+        } // end of if status
 	});
 
 			} // end of _onService

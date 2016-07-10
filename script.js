@@ -152,34 +152,6 @@ function find(result){
 
 	// });
 
-document.getElementById('getDirection').addEventListener('click', function(){
-
-
-	var directionsService = new google.maps.DirectionsService();
-        var directionsRequest = {
-            origin: "Washington DC",
-            destination: "Caldwell, NJ",
-            travelMode: google.maps.DirectionsTravelMode.DRIVING,
-            unitSystem: google.maps.UnitSystem.METRIC
-        };
-        directionsService.route(
-        directionsRequest,
-        function (response, status) {
-            if (status == google.maps.DirectionsStatus.OK) {
-                new google.maps.DirectionsRenderer({
-                    map: map.gMap,
-                    directions: response
-                });
-            }
-            else
-                $("#lblError").append("Unable To Find Root");
-        }
-    );
-
-
-
-
-});
 
 
 }(window, window.Mapster));
