@@ -1,4 +1,14 @@
-// Request API access: http://www.yelp.com/developers/getting_started/api_access
+var express = require('express');
+var app = express();
+var bodyParser = require('body-parser');
+
+
+app.use(express.static(__dirname+ "/public"));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+
+//Request API access: http://www.yelp.com/developers/getting_started/api_access
 var Yelp = require('yelp');
 
 var yelp = new Yelp({
@@ -8,8 +18,13 @@ var yelp = new Yelp({
   token_secret: 'Y_ZibdstQn15p5eTjequFnFEo_A',
 });
 
+app.post('/getyelp', function(req, res){
 
-getYelp = function(yelpName, yelpLocation){
+	console.log('recieved getyelp GET request');
+
+
+	var yelpLocation = req.body.input;
+	console.log(yelpLocation);
 
 	// See http://www.yelp.com/developers/documentation/v2/search_api
 	yelp.search({ term: 'food', location: yelpLocation, radius_filter: 1000})
@@ -22,10 +37,12 @@ getYelp = function(yelpName, yelpLocation){
 				console.log(data.businesses[i].display_phone);
 				console.log(data.businesses[i].location.display_address);
 
-				return data;
-
 				console.log('found');
 				//break;
+
+				// return data;
+				console.log(data);
+				res.json(data);
 			}
 		}
 
@@ -35,6 +52,13 @@ getYelp = function(yelpName, yelpLocation){
 	  console.error(err);
 	});
 
-}
+})
 
+
+
+
+
+
+console.log('Port running in 3000');
+app.listen(3000);
 

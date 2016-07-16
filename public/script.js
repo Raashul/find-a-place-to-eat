@@ -102,7 +102,6 @@ button = document.getElementById('button');
 //find = document.getElementById('find');
 
 function find(result){
-	console.log(result);
 
 	var location = {
 		lat: result.geometry.location.lat(),
@@ -120,19 +119,8 @@ function find(result){
 		origin: input.value,
 		name: result.formatted_address
 	});
-		console.log(type);
 		console.log('find function success');
 	}
-
-
-
-
-
-	// var infoWindow = new google.maps.InfoWindow({
-	// 	content: "I like food"
-	// });
-
-	// infoWindow.open(map.gMap, marker);
 
 
 
