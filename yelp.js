@@ -23,6 +23,7 @@ app.post('/getyelp', function(req, res){
 	console.log('recieved getyelp GET request');
 
 
+	//error is here req.body.input --> comes undefined
 	var yelpLocation = req.body.input;
 	console.log(yelpLocation);
 
