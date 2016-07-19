@@ -1,0 +1,13 @@
+TODO:
+
+1.
+Recieve data from yelp server side data and use the data in angular front end.
+Use the data (response) recieved and store it in a variable. Use that variable in angular to display.
+
+2.
+Angualar does not recognize the autocomplete address completed text. Find a fix for that.
+
+
+3. Style the displaying text
+
+4. Create more sophosticated Randomize search.
