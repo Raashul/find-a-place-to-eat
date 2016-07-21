@@ -10,6 +10,7 @@
 </head>
 <body ng-app= "myApp">
 
+
 		<div class="settings" ng-controller="AppCtrl">
 
 			<!-- <div class="beta">
@@ -19,7 +20,7 @@
 			</div> -->
 
 			<div class="option1" >
-				<input id="input" name = "input" type="text" size="60" >
+				<input id="input"  type="text" size="60" ng-model="input">
 				<button id="button" ng-click="search()">Search</button>
 			</div>
 
@@ -28,7 +29,18 @@
 
 		</div>
 
-		<div id="map-canvas">
+		<div class="inline">
+
+			<div id="map-canvas">
+
+			</div>
+
+			<div class="yelp" ng-controller="AppCtrl">
+
+				<h3> {{yelp}} </h3>
+
+			</div>
+
 
 		</div>
 
@@ -38,6 +50,8 @@
 			<h3 id="restaurantTitle"></h3>
 			<p id="modify">This text will be modified</p>
 		</div>
+
+
 
 		<div id="footer">
 			<p>&copy; 2016 Rashul Rajbhandari<p>
@@ -49,10 +63,11 @@
 
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDs9B3tpfCGaVmvWZ-gdMbvckaiU4Q8Azw&libraries=places" type="text/javascript"></script>
 
-	<script src="Mapster.js"></script>
-	<script src="map-options.js"> </script>
-	<script src="script.js"> </script>
+	<script src="js/Mapster.js"></script>
+	<script src="js/map-options.js"> </script>
+	<script src="js/script.js"> </script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-resource.min.js"></script>
 	<script src="controller/controller.js"></script>
 
 

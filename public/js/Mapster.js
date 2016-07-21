@@ -106,6 +106,7 @@
 
 					//Restaurant name
 					var yelpName = item.name;
+					localStorage.setItem('yelpName', yelpName);
 
 					//restaurant location
 					var yelpLocation = opts.name;
@@ -177,6 +178,7 @@
 					   	//this is the total time between two points by chosen vehicle type
 					    	var time = response.rows[0].elements[0].duration.text;
 
+					    	//this is is restaurant title
 					    	document.getElementById("restaurantTitle").innerHTML = yelpName;
 
 					    	document.getElementById("modify").innerHTML = "It is "  + distance + " far away. It will take you " + time + " to reach by car";

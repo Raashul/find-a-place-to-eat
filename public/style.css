@@ -16,6 +16,10 @@ body{
     background-color: #C3002F;
 }
 
+.inline div{
+    float: left;
+}
+
 #footer {
     position: fixed;
     bottom: 0;
@@ -54,6 +58,7 @@ body{
 
 #map-canvas{
 	height: 60%;
+    width: 60%;
 }
 
 #modify{
@@ -94,6 +99,7 @@ body{
       }
 
 #result{
+    clear:both;
         text-align: center;
         visibility: hidden;
         margin: 0 auto;
