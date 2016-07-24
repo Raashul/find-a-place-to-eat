@@ -18,9 +18,11 @@ var yelp = new Yelp({
   token_secret: 'Y_ZibdstQn15p5eTjequFnFEo_A',
 });
 
+
+//Posting data
 app.post('/getyelp', function(req, res){
 
-console.log('post request here');
+	console.log('post request here');
 
 	//error is here req.body.input --> comes undefined
 	var yelpLocation = req.body.input;
