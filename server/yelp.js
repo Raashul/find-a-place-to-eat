@@ -3,7 +3,7 @@ var app = express();
 var bodyParser = require('body-parser');
 
 
-app.use(express.static("../public"));
+app.use(express.static("../client"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -24,11 +24,11 @@ console.log('post request here');
 
 	//error is here req.body.input --> comes undefined
 	var yelpLocation = req.body.input;
-	console.log(yelpLocation);
-	console.log("This is req.body " +req.body);
+	console.log('Location for yelp search is ' + yelpLocation);
 
 	var yelpName = req.body.yelpName;
-	console.log(yelpName);
+		console.log('random restaurant from angular is ' + yelpName);
+
 
 	// See http://www.yelp.com/developers/documentation/v2/search_api
 	yelp.search({ term: 'food', location: yelpLocation, radius_filter: 1000})
