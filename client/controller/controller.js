@@ -28,17 +28,45 @@ app.controller('AppCtrl',function($scope, $http) {
         console.log(input);
 
 
-
         $http.post("/getyelp", input).success(function(response){
 
             //scope.yelp is undefined outside this function.
-            $scope.yelp = response.businesses[0].name;
+            var name            = response.businesses[0].name;
+            var rating          = response.businesses[0].rating;
+            var url             = response.businesses[0].url;
+            var status          = response.businesses[0].is_closed;
+            var contact         = response.businesses[0].phone;
+            var address         = response.businesses[0].location.display_address;
+            var rating_url     = response.businesses[0].location.rating_img_url;
+
+             var snippet        = response.businesses[0].snippet_text;
+
+
+
             console.log('yelp to localstorage is ' + $scope.yelp);
 
-            $scope.yelp= localStorage.getItem('restaurantName', yelp);
+
+            $scope.link     = "See me at yelp";
+
+            $scope.name     = "Name : " + name;
+            $scope.rating   = "rating : " + rating;
+           //$scope.url = "url :" + url;
+            $scope.status   = "status : " + closed;
+            $scope.contact  = "Contact : " + contact;
+
+            $scope.snippet  = snippet;
+
+            $scope.url      = url;
+
+
+
+            //$scope.yelp= localStorage.getItem('restaurantName', yelp);
 
 
        });
+
+        //this is undefined because we are using a callback function
+        console.log($scope.yelp);
 
 
     };

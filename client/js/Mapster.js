@@ -113,23 +113,11 @@
 					var yelpLocation = opts.name;
 
 
-
-
 				var service = new google.maps.places.PlacesService(this.gMap);
 				service.nearbySearch(opts, function(results, status){
 
-					//PICK ONE RESTAURANT AT RANDOM AND DISPLAY THE MARKER
-					var item = results[Math.floor(Math.random()*results.length)];
 
-					//Restaurant name
-
-					console.log("item picked at random is " + item);
-
-					var restaurantName = item.name;
-					console.log('random restaurant from jquery is ' + restaurantName);
-					localStorage.setItem('restaurantName', restaurantName);
-
-
+					var item = pickrestaurant(results);
 
 
 				if (status === google.maps.places.PlacesServiceStatus.OK) {
@@ -182,15 +170,13 @@
 					        travelMode: google.maps.TravelMode.DRIVING,
 					        avoidHighways: false,
 					        avoidTolls: true
-					    },
-					    callback
-					);
+					    },	callback );
 
-					function callback(response, status) {
+					function callback(response, status) {  //function to be called once distance is calculated
 
 					    if(status=="OK") {
 
-					    	console.log(response);
+					    	console.log("in direction callback function");
 
 					    	//this is the total distance between two points
 					   	var distance =	response.rows[0].elements[0].distance.text;
@@ -198,11 +184,13 @@
 					   	//this is the total time between two points by chosen vehicle type
 					    	var time = response.rows[0].elements[0].duration.text;
 
+					    	document.getElementById("result").style.visibility = "visible";
+
 					    	//this is is restaurant title
-					    	document.getElementById("restaurantTitle").innerHTML = restaurantName;
+					    	document.getElementById("restaurantTitle").innerHTML = item.name;
 
 					    	document.getElementById("modify").innerHTML = "It is "  + distance + " far away. It will take you " + time + " to reach by car";
-					    	document.getElementById("result").style.visibility = "visible";
+
 
 					    } else {
 					        alert("Error: Try Again ");
@@ -225,6 +213,21 @@
 	Mapster.create = function(element, opts){
 		return new Mapster(element, opts);
 	};
+
+	pickrestaurant = function(rest){
+
+					var item =  rest[Math.floor(Math.random()*rest.length)]; //item is an object.
+
+					//item.name is restaurant name
+
+					var restaurantName = item.name;
+					console.log('random restaurant from jquery is ' + restaurantName);
+					localStorage.setItem('restaurantName', restaurantName);
+
+					return item;
+	};
+
+
 
 	window.Mapster = Mapster;
 

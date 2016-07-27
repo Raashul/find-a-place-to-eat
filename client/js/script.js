@@ -51,6 +51,7 @@ button = document.getElementById('button');
 				icon: './currentlocation.png',
 				content: "Your current location"
 			});
+
 		input.value = result.formatted_address;
 
 		find(result);

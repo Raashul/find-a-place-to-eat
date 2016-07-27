@@ -7,12 +7,15 @@
 
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Tangerine|Inconsolata|Droid+Sans">
 </head>
 
-<body ng-app= "myApp">
+<body ng-app= "myApp" ng-controller = "AppCtrl">
 
 
-		<div class="settings" ng-controller="AppCtrl">
+		<div class="settings">
 
 			<!-- <div class="beta">
 
@@ -23,12 +26,9 @@
 			<div class="option1" >
 				<input id="input"  type="text" size="60" ng-model="input" googleplace>
 
-
 				<button id="button" class="btn btn-primary">Search</button>
 				<button id="yelpbutton"  ng-click="search()" class="btn btn-info">Get Yelp Reviews</button>
 				<button id="reset" class="btn btn-danger">Reset</button>
-
-
 
 			</div>
 
@@ -37,36 +37,39 @@
 
 		</div>
 
-		<div class="inline" >
+		<div id="result">
+			<h4 id="restaurantTitle"></h4>
+			<p id="modify">This text will be modified</p>
+		</div>
+
+		<div class="inline">
 
 			<div id="map-canvas">
 
 			</div>
 
-			<div class="yelp" ng-controller = "AppCtrl">
+			<div class="yelp">
 
-				 {{yelp}}
+				<div class="yelp-background">
+
+					<h4> {{name}}</h4>
+					<h4>{{snippet}}</h4>
+					<h4>{{rating}}</h4>
+					<h4>{{contact}}</h4>
+					<h4>{{status}}</h4>
+
+
+					<h4><a href="{{url}}"> {{link}}</a></h4>
+				</div>
 
 			</div>
 
 
 		</div>
 
-
-		<div id="result">
-			<h3> Found a restaurant for you</h3>
-			<h3 id="restaurantTitle"></h3>
-			<p id="modify">This text will be modified</p>
-		</div>
-
-
-
 		<div id="footer">
 			<p>&copy; 2016 Rashul Rajbhandari<p>
 		</div>
-
-
-
 
 
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDs9B3tpfCGaVmvWZ-gdMbvckaiU4Q8Azw&libraries=places" type="text/javascript"></script>

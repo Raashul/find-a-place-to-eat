@@ -1,6 +1,9 @@
-$scope.yelp is undefined once it is out of the search() function.
-Hence, it is not displayed in html content under <h2>
 
-1. Make scope available to html content.
 
-2. Changed alrogithm to sort/find restaurant by picking from array.
+
+1. Changed alrogithm to sort/find restaurant by picking from array.
+
+
+2. More styling
+
+
