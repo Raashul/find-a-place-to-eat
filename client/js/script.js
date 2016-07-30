@@ -18,9 +18,7 @@
 
 
 
-
-
-// Added reset button to reset google map.
+// Added RESET button to reset google map.
 document.getElementById('reset').addEventListener('click', function(e){
 	map.clear();
 	map = mapster.create(element, options);
@@ -32,13 +30,12 @@ document.getElementById('reset').addEventListener('click', function(e){
 button = document.getElementById('button');
 
 	button.addEventListener('click', function(e){
+
 	geocoder.geocode({
 		address: input.value
 	}, function(results, status){
 		if(status === google.maps.GeocoderStatus.OK){
-			console.log(results);
 			var result = results[0];
-
 
 
 				//setting the center of the map to the inputted value.
@@ -54,7 +51,18 @@ button = document.getElementById('button');
 
 		input.value = result.formatted_address;
 
-		find(result);
+		var restaurant = localStorage.getItem('restaurant');
+
+		geocoder.geocode({
+			address: restaurant
+		}, function(results, status){
+			if(status === google.maps.GeocoderStatus.OK){
+				restaurant = results[0].formatted_address;
+
+			}
+		})
+		console.log('final destination is ' + restaurant);
+		find(result, restaurant);
 
 		}else{
 			console.error(status);
@@ -65,7 +73,9 @@ button = document.getElementById('button');
 
 //find = document.getElementById('find');
 
-function find(result){
+
+//This Button will call function to display DIRECTION SERVICE.
+function find(result, restaurant){
 
 	var location = {
 		lat: result.geometry.location.lat(),
@@ -77,9 +87,8 @@ function find(result){
 
 	//calls the on service method from Mapster.js to locate nearby restaurants.
 	map._onService({
+		destination: restaurant,
 		location: location,
-		radius: 1000,
-		type: ['restaurant'],
 		origin: input.value,
 		name: result.formatted_address
 	});

@@ -14,6 +14,7 @@
 
 <body ng-app= "myApp" ng-controller = "AppCtrl">
 
+	<div class="container">
 
 		<div class="settings">
 
@@ -25,10 +26,9 @@
 
 			<div class="option1" >
 				<input id="input"  type="text" size="60" ng-model="input" googleplace>
-
-				<button id="button" class="btn btn-primary">Search</button>
-				<button id="yelpbutton"  ng-click="search()" class="btn btn-info">Get Yelp Reviews</button>
-				<button id="reset" class="btn btn-danger">Reset</button>
+				<button id="yelpbutton"  ng-click="search()" class="btn btn-primary">Search</button>
+				<button id="button" class="btn btn-info">Show Direction</button>
+				<button id="reset" class="btn btn-danger" ng-click="reset()">Reset</button>
 
 			</div>
 
@@ -37,9 +37,12 @@
 
 		</div>
 
+	</div>
+
 		<div id="result">
-			<h4 id="restaurantTitle"></h4>
-			<p id="modify">This text will be modified</p>
+			<h4>{{display_name}}</h4>
+			<img ng-src="{{rating_img}}">
+			<p>"{{snippet}}"</p>
 		</div>
 
 		<div class="inline">
@@ -53,10 +56,10 @@
 				<div class="yelp-background">
 
 					<h4> {{name}}</h4>
-					<h4>{{snippet}}</h4>
+					<h4>{{address}}</h4>
+					<h4> {{status}}</h4>
 					<h4>{{rating}}</h4>
 					<h4>{{contact}}</h4>
-					<h4>{{status}}</h4>
 
 
 					<h4><a href="{{url}}"> {{link}}</a></h4>
@@ -67,9 +70,27 @@
 
 		</div>
 
-		<div id="footer">
-			<p>&copy; 2016 Rashul Rajbhandari<p>
+		<div class="container final">
+
+			<div class="thanks">
+
+				<h2>Thanks To</h2>
+				<div class="image_div">
+					<img src="http://screenshots.en.sftcdn.net/en/scrn/97000/97769/google-maps-53-535x535.png" class="image" id="left">
+					<h3 id="center">AND</h3>
+					<img src="https://s3-media2.fl.yelpcdn.com/assets/srv0/seo_metadata/e98ed5a1460f/assets/img/logos/yelp_og_image.png" id="right" class="image">
+
+				</div>
+			</div>
+
 		</div>
+
+		<div id="footer">
+
+			<p>&copy; 2016 Rashul Rajbhandari<p>
+
+		</div>
+
 
 
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDs9B3tpfCGaVmvWZ-gdMbvckaiU4Q8Azw&libraries=places" type="text/javascript"></script>
@@ -81,6 +102,7 @@
 
 	<script src="app.js"></script>
 
+	<script src="controller/service.js"></script>
 	<script src="controller/controller.js"></script>
 
 

@@ -100,6 +100,7 @@
 				    this.markers[i].setMap(null);
 				  }
 				  this.markers.length = 0;
+				  document.getElementById("result").style.visibility = "hidden";
 
 			},
 
@@ -107,39 +108,16 @@
 			//creating service.
 			_onService: function(opts){
 
-				console.log('running _onService');
 
-				//restaurant location
-					var yelpLocation = opts.name;
+					//var item = pickrestaurant(results);
 
-
-				var service = new google.maps.places.PlacesService(this.gMap);
-				service.nearbySearch(opts, function(results, status){
-
-
-					var item = pickrestaurant(results);
-
-
-				if (status === google.maps.places.PlacesServiceStatus.OK) {
-
-					//var data = getYelp(yelpName, yelpLocation);
-
-					//manipulate data -> data.buisness[].name
-
-					// map.addMarker({
-					// 	lat: item.geometry.location.lat(),
-					// 	lng: item.geometry.location.lng(),
-					// 	content: `
-					// 		<button id='getDirections' onClick = "getDirection()">Click me</button>
-					// 	`
-					// });
 
 					var distanceService = new google.maps.DistanceMatrixService();
 					var directionsService = new google.maps.DirectionsService();
 
 			      var directionsRequest = {
 			            origin: opts.origin,
-			            destination: item.vicinity,
+			            destination: opts.destination.vicinity,
 			            travelMode: google.maps.DirectionsTravelMode.DRIVING,
 			            unitSystem: google.maps.UnitSystem.METRIC
 			        };
@@ -166,7 +144,7 @@
 			 		distanceService.getDistanceMatrix(
 					    {
 					        origins: [opts.origin],
-					        destinations: [item.vicinity],
+					        destinations: [opts.destination.vicinity],
 					        travelMode: google.maps.TravelMode.DRIVING,
 					        avoidHighways: false,
 					        avoidTolls: true
@@ -179,17 +157,17 @@
 					    	console.log("in direction callback function");
 
 					    	//this is the total distance between two points
-					   	var distance =	response.rows[0].elements[0].distance.text;
+					   	// var distance =	response.rows[0].elements[0].distance.text;
 
-					   	//this is the total time between two points by chosen vehicle type
-					    	var time = response.rows[0].elements[0].duration.text;
+					   	// //this is the total time between two points by chosen vehicle type
+					    // 	var time = response.rows[0].elements[0].duration.text;
 
-					    	document.getElementById("result").style.visibility = "visible";
+					    // 	document.getElementById("result").style.visibility = "visible";
 
-					    	//this is is restaurant title
-					    	document.getElementById("restaurantTitle").innerHTML = item.name;
+					    // 	//this is is restaurant title
+					    // 	document.getElementById("restaurantTitle").innerHTML = opts.destination;
 
-					    	document.getElementById("modify").innerHTML = "It is "  + distance + " far away. It will take you " + time + " to reach by car";
+					    // 	document.getElementById("modify").innerHTML = "It is "  + distance + " far away. It will take you " + time + " to reach by car";
 
 
 					    } else {
@@ -198,8 +176,7 @@
 					}
 
 
-        } // end of if status
-	});
+
 
 			} // end of _onService
 
@@ -214,18 +191,6 @@
 		return new Mapster(element, opts);
 	};
 
-	pickrestaurant = function(rest){
-
-					var item =  rest[Math.floor(Math.random()*rest.length)]; //item is an object.
-
-					//item.name is restaurant name
-
-					var restaurantName = item.name;
-					console.log('random restaurant from jquery is ' + restaurantName);
-					localStorage.setItem('restaurantName', restaurantName);
-
-					return item;
-	};
 
 
 
