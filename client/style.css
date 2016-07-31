@@ -8,11 +8,15 @@
 
 }
 
+#yelplink{
+    color: #D32323;
+}
+
 
 #map-canvas{
     float: left;
     height: 100%;
-    width: 800px;
+    width: 750px;
     margin-left: 30px;
 
 }
@@ -55,6 +59,7 @@
 
 #modify{
     font-size: 1.2em;
+    color: #2AABD2;
 }
 
 #input {
@@ -70,9 +75,9 @@
       }
 
 .yelp{
-        margin-left: 820px;
+        margin-left: 750px;
         height: 400px;
-        width: 400px;
+        width: 450px;
       }
 
 .yelp-background{

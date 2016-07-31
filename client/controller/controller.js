@@ -42,9 +42,10 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
            var name = restaurant[0].name
 
-           localStorage.setItem('restaurant', name);
+
 
             var rating          = restaurant[0].rating;
+            var image           = restaurant[0].image_url;
             var url             = restaurant[0].url;
             var status          = restaurant[0].is_closed;
             var contact         = restaurant[0].phone;
@@ -55,9 +56,11 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
             $scope.snippet        = restaurant[0].snippet_text;
 
+              localStorage.setItem('restaurant', address);
 
 
-            $scope.link     = "See me at yelp";
+
+            $scope.link     = "Visit at Yelp";
             $scope.address = "Address : " + address;
 
             $scope.name     = "Name : " + name;
@@ -94,7 +97,14 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
     $scope.reset = function(){
 
-       $scope = "";
+      $scope.link = "";
+      $scope.address = "";
+      $scope.name = "";
+      $scope.rating = "";
+      $scope.status = "";
+      $scope.contact = "";
+      $scope.url = "";
+      $scope.display_name = "";
 
     }
 

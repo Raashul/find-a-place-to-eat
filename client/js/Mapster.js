@@ -144,7 +144,7 @@
 			 		distanceService.getDistanceMatrix(
 					    {
 					        origins: [opts.origin],
-					        destinations: [opts.destination.vicinity],
+					        destinations: [opts.destination],
 					        travelMode: google.maps.TravelMode.DRIVING,
 					        avoidHighways: false,
 					        avoidTolls: true
@@ -157,17 +157,13 @@
 					    	console.log("in direction callback function");
 
 					    	//this is the total distance between two points
-					   	// var distance =	response.rows[0].elements[0].distance.text;
+					   	var distance =	response.rows[0].elements[0].distance.text;
 
-					   	// //this is the total time between two points by chosen vehicle type
-					    // 	var time = response.rows[0].elements[0].duration.text;
+					   	//this is the total time between two points by chosen vehicle type
+					    	var time = response.rows[0].elements[0].duration.text;
 
-					    // 	document.getElementById("result").style.visibility = "visible";
 
-					    // 	//this is is restaurant title
-					    // 	document.getElementById("restaurantTitle").innerHTML = opts.destination;
-
-					    // 	document.getElementById("modify").innerHTML = "It is "  + distance + " far away. It will take you " + time + " to reach by car";
+					    	document.getElementById("modify").innerHTML = "Duration: "  + distance + ". Estimated time is " + time + " by car";
 
 
 					    } else {

@@ -58,6 +58,7 @@ button = document.getElementById('button');
 		}, function(results, status){
 			if(status === google.maps.GeocoderStatus.OK){
 				restaurant = results[0];
+
 				restaurant = restaurant.formatted_address;
 				console.log('final destination is ' + restaurant);
 				find(result, restaurant);
@@ -83,17 +84,11 @@ function find(result, restaurant){
 		lng: result.geometry.location.lng()
 	};
 
-	var dlocation = {
-		lat: restaurant.geometry.location.lat(),
-		lng: restaurant.geometry.location.lng()
-	};
-
-
 	var type;
 
 	//calls the on service method from Mapster.js to locate nearby restaurants.
 	map._onService({
-		destination: dlocation,
+		destination: restaurant,
 		location: location,
 		origin: input.value,
 		name: result.formatted_address
