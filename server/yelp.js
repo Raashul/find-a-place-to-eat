@@ -9,14 +9,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 
 //Request API access: http://www.yelp.com/developers/getting_started/api_access
-var Yelp = require('yelp');
+		var Yelp = require('yelp');
 
-var yelp = new Yelp({
-  consumer_key: 'WfydRv01aFXZWK6TaAJOnQ',
-  consumer_secret: 'oh9wyIny60Vc_edK4MBjCDHL0Bs',
-  token: 'n7GVnnmsVoXxjoRdP9fxeDpmJ17DqzVk',
-  token_secret: 'Y_ZibdstQn15p5eTjequFnFEo_A',
-});
+		var yelp = new Yelp({
+		  consumer_key: 'WfydRv01aFXZWK6TaAJOnQ',
+		  consumer_secret: 'oh9wyIny60Vc_edK4MBjCDHL0Bs',
+		  token: 'n7GVnnmsVoXxjoRdP9fxeDpmJ17DqzVk',
+		  token_secret: 'Y_ZibdstQn15p5eTjequFnFEo_A',
+		});
 
 
 //Posting data
@@ -24,7 +24,7 @@ app.post('/getyelp', function(req, res){
 
 	console.log('post request here');
 
-	//error is here req.body.input --> comes undefined
+
 	var yelpLocation = req.body.input;
 
 
@@ -33,7 +33,7 @@ app.post('/getyelp', function(req, res){
 	.then(function (data) {
 		console.log(data.businesses[0]);
 
-		res.json(data);
+		res.json(data); // I will return all the data recieved from YELP API. I will filter the data in controller.js
 
 	})
 	.catch(function (err) {

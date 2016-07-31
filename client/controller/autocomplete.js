@@ -1,6 +1,6 @@
 
 
-// This code will be used in controller.js for autocomplete feature.
+// This code will be used in controller.js for address autocomplete feature.
 
 var myApp = angular.module('myApp', []);
 

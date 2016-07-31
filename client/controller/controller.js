@@ -15,6 +15,9 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
     });
 
 
+
+    //Funtion for the search button
+    // This function will recieve data from the server, filter the data , and respond back to the DOM
     $scope.search = function() {
 
       console.log('inside search yelp function');
@@ -43,6 +46,7 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
            var name = restaurant[0].name
 
 
+           //Storing all relevent data
 
             var rating          = restaurant[0].rating;
             var image           = restaurant[0].image_url;
@@ -56,7 +60,7 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
             $scope.snippet        = restaurant[0].snippet_text;
 
-              localStorage.setItem('restaurant', address);
+            localStorage.setItem('restaurant', address);
 
 
 

@@ -1,5 +1,7 @@
 
-//This is a mapter
+//This is a model for script.js
+
+//this file contains the map function which will be implemented by script.js
 
 (function(window, google){
 
