@@ -117,7 +117,7 @@
 
 			      var directionsRequest = {
 			            origin: opts.origin,
-			            destination: opts.destination.vicinity,
+			            destination: opts.destination,
 			            travelMode: google.maps.DirectionsTravelMode.DRIVING,
 			            unitSystem: google.maps.UnitSystem.METRIC
 			        };

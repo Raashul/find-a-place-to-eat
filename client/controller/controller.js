@@ -94,9 +94,7 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
     $scope.reset = function(){
 
-        $scope.name = "";
-        $scope.address = "";
-        $scope.snippet = "";
+       $scope = "";
 
     }
 
