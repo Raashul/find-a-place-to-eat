@@ -28,6 +28,7 @@
 				<input id="input"  type="text" size="60" ng-model="input" googleplace>
 				<button id="yelpbutton"  ng-click="search()" class="btn btn-primary">Search</button>
 				<button id="button" class="btn btn-info">Show Direction</button>
+				<button id="next" class="btn btn-primary" ng-click="next()">Next</button>
 				<button id="reset" class="btn btn-danger" ng-click="reset()">Reset</button>
 
 			</div>
@@ -61,7 +62,7 @@
 					<h4> {{status}}</h4>
 					<h4>{{rating}}</h4>
 					<h4>{{contact}}</h4>
-					<h4><a href="{{url}}" id="yelplink"> {{link}}</a></h4>
+					<h4><a href="{{url}}" id="yelplink" target="_blank"> {{link}}</a></h4>
 				</div>
 
 			</div>

@@ -35,9 +35,11 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
             $scope.filterdata = filterdata.filter(response.businesses);
             console.log($scope.filterdata);
 
+
+            //this will be used for the reset button
+            $scope.resetR = $scope.filterdata;
+
             var restaurant = $scope.filterdata;
-
-
 
             //scope.yelp is undefined outside this function.
            //  var name            = response.name;
@@ -57,6 +59,7 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
             var address         = restaurant[0].location.display_address;
 
             var rating_url      =  restaurant[0].location.rating_img_url;
+            var reviewCount     = restaurant[0].review_count;
 
             $scope.snippet        = restaurant[0].snippet_text;
 
@@ -64,7 +67,10 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
 
 
-            $scope.link     = "Visit at Yelp";
+            $scope.link   = reviewCount + "reviews. Check out at Yelp ";
+            $scope.contact  = "Contact : " + contact;
+            $scope.url      = url;
+            $scope.display_name = name;
             $scope.address = "Address : " + address;
 
             $scope.name     = "Name : " + name;
@@ -79,12 +85,6 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
 
 
-             $scope.contact  = "Contact : " + contact;
-
-             $scope.url      = url;
-
-             $scope.display_name = name;
-
              document.getElementById("result").style.visibility = "visible"
 
             //$scope.yelp= localStorage.getItem('restaurantName', yelp);
@@ -98,8 +98,7 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
     };
 
-
-    $scope.reset = function(){
+  $scope.reset = function(){
 
       $scope.link = "";
       $scope.address = "";
@@ -111,6 +110,79 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
       $scope.display_name = "";
 
     }
+
+
+
+    $scope.count = 0;
+
+
+
+      //This is the function for the next button
+    $scope.next = function(){
+      var restaurant = $scope.resetR;
+       var number = $scope.count;
+
+
+      $scope.reset();
+
+      console.log(restaurant.length);
+      if(restaurant.length <= 1){
+        alert('no more restaurants. Search again');
+        $scope.reset();
+      }
+
+      else{
+
+            //scope.yelp is undefined outside this function.
+           //  var name            = response.name;
+           //  console.log('name found ' + name);
+
+          restaurant.splice(number, 1);
+          console.log(restaurant);
+
+         //Storing all relevent data
+            var name            = restaurant[number].name
+            var rating          = restaurant[number].rating;
+            var image           = restaurant[number].image_url;
+            var url             = restaurant[number].url;
+            var status          = restaurant[number].is_closed;
+            var contact         = restaurant[number].phone;
+            $scope.rating_img   = restaurant[number].rating_img_url;
+            var address         = restaurant[number].location.display_address;
+
+            var rating_url      =  restaurant[number].location.rating_img_url;
+            var reviewCount     = restaurant[number].review_count;
+
+            $scope.snippet        = restaurant[number].snippet_text;
+
+            localStorage.setItem('restaurant', address);
+
+
+
+            $scope.link   = reviewCount + "reviews. Check out at Yelp ";
+            $scope.contact  = "Contact : " + contact;
+            $scope.url      = url;
+            $scope.display_name = name;
+            $scope.address = "Address : " + address;
+
+            $scope.name     = "Name : " + name;
+            $scope.rating   = "rating : " + rating;
+
+
+           if(status == "false"){
+                 $scope.status   = "Closed!";
+           } else{
+            $scope.status = "Open!";
+           }
+
+
+    }
+
+
+      }
+
+
+
 
 
 });
