@@ -1,12 +1,21 @@
 
+.settings{
+    margin-top: 50px;
+}
 
-.inline {
-    height: 500px;
-
-    margin-top: -27px;
-    width: 1000px;
+.option1{
+   margin-bottom: 20px;
 
 }
+
+
+.inline {
+    margin-left: 20px;
+    height: 500px;
+    width: 100%;
+}
+
+
 
 #yelplink{
     color: #D32323;
@@ -14,11 +23,15 @@
 
 
 #map-canvas{
-    float: left;
-    height: 100%;
-    width: 750px;
-    margin-left: 30px;
+    height: 70%;
+    width: 100%;
 
+
+}
+
+.search{
+    width: 357px;
+    background-color: green !important;
 }
 
 #footer {
@@ -40,17 +53,7 @@
     top: 40%;
 }
 
-.settings{
-    width: 65%;
-    margin: 0 auto;
-    margin-top: 15px;
-    margin-bottom: 10px;
-}
 
-.option1{
-    display: inline;
-    margin-bottom: 40px;
-}
 
 .option2{
     display: inline-flex;
@@ -75,16 +78,15 @@
       }
 
 .yelp{
-        margin-left: 750px;
-        height: 400px;
-        width: 450px;
+        margin-top: 40px;
+        height: 100%;
+        width: 100%;
       }
 
 .yelp-background{
     margin-left: 50px;
-    margin-top: 40px;
     font-family: "Droid Sans", serif;
-    padding-top: 50px;
+
 }
 
 
@@ -110,50 +112,17 @@
         margin-top: -10px;
       }
 
-.final{
-     margin-top: 40px;
-     margin-bottom: 60px;
-}
 
-.thanks{
-
-}
-
-.image_div {
-   margin: auto;
-    width: 50%;
-    text-align:center;
-    margin-top: 30px;
-}
-
-.thanks h2{
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-#left {
-    float:left;
-    width:100px;
-}
-
-#center {
-    display: inline-block;
-    margin:0 auto;
-    width:100px;
-    margin-top: 20px;
-}
-
-#right {
-    float:right;
+#next {
     width:100px;
 }
 
 
 
-.image{
-    height: 80px;
-    width: 0px
-}
+
+
+
+
 
 #info{
     width: 300px;

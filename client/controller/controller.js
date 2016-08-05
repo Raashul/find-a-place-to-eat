@@ -67,7 +67,7 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
 
 
-            $scope.link   = reviewCount + "reviews. Check out at Yelp ";
+         $scope.link   = "Check out " + reviewCount + " reviews "+ " at Yelp ";
             $scope.contact  = "Contact : " + contact;
             $scope.url      = url;
             $scope.display_name = name;
@@ -87,10 +87,15 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
              document.getElementById("result").style.visibility = "visible"
 
+
+             $scope.show = true;
+
             //$scope.yelp= localStorage.getItem('restaurantName', yelp);
 
 
        });
+
+
 
         //this is undefined because we are using a callback function
         //console.log($scope.yelp);
@@ -119,6 +124,7 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
       //This is the function for the next button
     $scope.next = function(){
+
       var restaurant = $scope.resetR;
        var number = $scope.count;
 
@@ -159,7 +165,7 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
 
 
-            $scope.link   = reviewCount + "reviews. Check out at Yelp ";
+            $scope.link   = "Check out " + reviewCount + " reviews "+ " at Yelp ";
             $scope.contact  = "Contact : " + contact;
             $scope.url      = url;
             $scope.display_name = name;

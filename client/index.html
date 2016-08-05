@@ -18,18 +18,31 @@
 
 		<div class="settings">
 
-			<!-- <div class="beta">
+			<div class="row">
 
-				<p>Still in beta phase</p>
-
-			</div> -->
-
-			<div class="option1" >
+				<div class="col-md-6 col-md-offset-3 option1" >
 				<input id="input"  type="text" size="60" ng-model="input" googleplace>
-				<button id="yelpbutton"  ng-click="search()" class="btn btn-primary">Search</button>
-				<button id="button" class="btn btn-info">Show Direction</button>
-				<button id="next" class="btn btn-primary" ng-click="next()">Next</button>
-				<button id="reset" class="btn btn-danger" ng-click="reset()">Reset</button>
+				</div>
+
+			</div>
+
+			<div class="buttons row">
+
+				<div class="col-md-6 col-md-offset-3">
+
+					<button id="yelpbutton"  ng-click="search()" class="btn btn-success search">Find me a place to Eat</button>
+
+				</div>
+
+				<div class="row">
+					<div class=".col-md-4 col-md-offset-4">
+					<button id="next" class="btn btn-primary"  ng-show = "show" ng-click="next()">Next</button>
+					<button id="reset" class="btn btn-danger"  ng-show = "show" ng-click="reset()">Reset</button>
+					</div>
+
+
+				</div>
+
 
 			</div>
 
@@ -38,7 +51,7 @@
 
 		</div>
 
-	</div>
+
 
 		<div id="result">
 			<h4>{{display_name}}</h4>
@@ -47,43 +60,44 @@
 			<p id="modify"></p>
 		</div>
 
-		<div class="inline">
 
-			<div id="map-canvas">
+			<div class="row inline">
 
-			</div>
+				<div class="col-md-6">
+					<button id="button" ng-show = "show" class="btn btn-info btn-xs">Show Direction</button>
 
-			<div class="yelp">
+					<div id="map-canvas">
 
-				<div class="yelp-background">
-
-					<h4> {{name}}</h4>
-					<h4>{{address}}</h4>
-					<h4> {{status}}</h4>
-					<h4>{{rating}}</h4>
-					<h4>{{contact}}</h4>
-					<h4><a href="{{url}}" id="yelplink" target="_blank"> {{link}}</a></h4>
-				</div>
-
-			</div>
-
-
-		</div>
-
-		<div class="container final">
-
-			<div class="thanks">
-
-				<h2>Thanks To</h2>
-				<div class="image_div">
-					<img src="http://screenshots.en.sftcdn.net/en/scrn/97000/97769/google-maps-53-535x535.png" class="image" id="left">
-					<h3 id="center">AND</h3>
-					<img src="https://s3-media2.fl.yelpcdn.com/assets/srv0/seo_metadata/e98ed5a1460f/assets/img/logos/yelp_og_image.png" id="right" class="image">
+					</div>
 
 				</div>
+
+
+				<div class="col-md-6 yelp">
+
+					<div class="yelp-background">
+
+						<h4> {{name}}</h4>
+						<h4>{{address}}</h4>
+						<h4> {{status}}</h4>
+						<h4>{{rating}}</h4>
+						<h4>{{contact}}</h4>
+						<h4><a href="{{url}}" id="yelplink" target="_blank"> {{link}}</a></h4>
+					</div>
+
+
+
+				</div>
+
+
 			</div>
 
-		</div>
+
+
+
+
+	</div>
+
 
 		<div id="footer">
 
