@@ -45,6 +45,9 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
            //  var name            = response.name;
            //  console.log('name found ' + name);
 
+
+
+
            var name = restaurant[0].name
 
 
@@ -60,21 +63,22 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
             var rating_url      =  restaurant[0].location.rating_img_url;
             var reviewCount     = restaurant[0].review_count;
+            $scope.rimage          = restaurant[0].image_url;
 
-            $scope.snippet        = restaurant[0].snippet_text;
+            $scope.snippet        =  restaurant[0].snippet_text;
 
             localStorage.setItem('restaurant', address);
 
 
 
-         $scope.link   = "Check out " + reviewCount + " reviews "+ " at Yelp ";
+         $scope.link   = "Check out " + reviewCount + " reviews "+ " in Yelp ";
             $scope.contact  = "Contact : " + contact;
             $scope.url      = url;
             $scope.display_name = name;
             $scope.address = "Address : " + address;
 
             $scope.name     = "Name : " + name;
-            $scope.rating   = "rating : " + rating;
+            $scope.rating   = "rating : " + rating + " / 5";;
 
 
            if(status == "false"){
@@ -84,8 +88,7 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
            }
 
 
-
-             document.getElementById("result").style.visibility = "visible"
+           document.getElementById("result").style.visibility = "visible"
 
 
              $scope.show = true;
@@ -103,6 +106,8 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
     };
 
+    //  <-------Function for reset button ----->
+
   $scope.reset = function(){
 
       $scope.link = "";
@@ -113,6 +118,9 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
       $scope.contact = "";
       $scope.url = "";
       $scope.display_name = "";
+      $scope.rating_img   = "";
+      $scope.snippet = "";
+      $scope.rimage = "";
 
     }
 
@@ -122,11 +130,11 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
 
 
-      //This is the function for the next button
+      //<-----------This is the function for the next button-------->
     $scope.next = function(){
 
       var restaurant = $scope.resetR;
-       var number = $scope.count;
+      var number = $scope.count;
 
 
       $scope.reset();
@@ -158,6 +166,7 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
             var rating_url      =  restaurant[number].location.rating_img_url;
             var reviewCount     = restaurant[number].review_count;
+              $scope.rimage     = restaurant[number].image_url;
 
             $scope.snippet        = restaurant[number].snippet_text;
 
@@ -165,14 +174,14 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
 
 
-            $scope.link   = "Check out " + reviewCount + " reviews "+ " at Yelp ";
+            $scope.link   = "Check out " + reviewCount + " reviews "+ " in Yelp ";
             $scope.contact  = "Contact : " + contact;
             $scope.url      = url;
             $scope.display_name = name;
             $scope.address = "Address : " + address;
 
             $scope.name     = "Name : " + name;
-            $scope.rating   = "rating : " + rating;
+            $scope.rating   = "rating : " + rating + " / 5";
 
 
            if(status == "false"){
@@ -186,6 +195,7 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
 
       }
+
 
 
 

@@ -103,7 +103,34 @@
 				  }
 				  this.markers.length = 0;
 				  document.getElementById("result").style.visibility = "hidden";
+			},
 
+
+				//Function for next button: This function will clear all markers but not hide result <div>
+			next : function(){
+
+				var request = {
+				    query: localStorage.getItem('restaurant')
+				  };
+
+				   var service = new google.maps.places.PlacesService();
+					  service.textSearch(request, callback);
+
+
+					function callback(results, status) {
+				  if (status == google.maps.places.PlacesServiceStatus.OK) {
+				    console.log(results);
+				  }
+				}
+
+
+
+				 //	setMapOnAll(null);
+        	for (var i = 0; i < this.markers.length; i++ ) {
+				    this.markers[i].setMap(null);
+				  }
+				  this.markers.length = 0;
+				  document.getElementById("modify").innerHTML = "";
 			},
 
 
@@ -131,9 +158,12 @@
 			                new google.maps.DirectionsRenderer({
 			                    map: map.gMap,
 			                    directions: response
+
 			                });
 
 			               // console.log(response.request.destination);
+
+			               console.log(place);
 
 			            }
 			            else{

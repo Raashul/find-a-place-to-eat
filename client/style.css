@@ -1,4 +1,21 @@
+html, body{
+    margin: 0;
+    padding: 0;
+}
 
+
+.intro{
+    height: 50px;
+    font-weight: bold;
+    background-color: black;
+
+}
+
+.lead{
+    padding-top: 5px;
+    color: white;
+    padding-left: 30px;
+}
 .settings{
     margin-top: 50px;
 }
@@ -6,6 +23,10 @@
 .option1{
    margin-bottom: 20px;
 
+}
+
+#button{
+    margin-bottom: 5px;
 }
 
 
@@ -38,7 +59,7 @@
     clear: both;
     bottom: 0;
     width: 100%;
-    font-size: 0.9em;
+    font-size: 1em;
 }
 
 #footer p{
@@ -110,7 +131,13 @@
         margin: 0 auto;
         padding: 0;
         margin-top: -10px;
+        margin-bottom: 20px;
       }
+
+#restaurantImg{
+    height: 80px;
+    width: 130px;
+}
 
 
 #next {

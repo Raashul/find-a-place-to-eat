@@ -5,6 +5,8 @@
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 
@@ -13,6 +15,12 @@
 </head>
 
 <body ng-app= "myApp" ng-controller = "AppCtrl">
+
+	<div class="intro">
+			<p class="lead">Find a place to eat with a click of a button!</p>
+
+		</div>
+
 
 	<div class="container">
 
@@ -36,7 +44,7 @@
 
 				<div class="row">
 					<div class=".col-md-4 col-md-offset-4">
-					<button id="next" class="btn btn-primary"  ng-show = "show" ng-click="next()">Next</button>
+					<button id="next" class="btn btn-primary" ng-show = "show" ng-click="next()">Next</button>
 					<button id="reset" class="btn btn-danger"  ng-show = "show" ng-click="reset()">Reset</button>
 					</div>
 
@@ -54,10 +62,11 @@
 
 
 		<div id="result">
+
 			<h4>{{display_name}}</h4>
 			<img ng-src="{{rating_img}}">
-			<p>"{{snippet}}"</p>
-			<p id="modify"></p>
+			<p><q>{{snippet}}</q></p>
+			<strong id="modify"></strong>
 		</div>
 
 
@@ -83,6 +92,10 @@
 						<h4>{{rating}}</h4>
 						<h4>{{contact}}</h4>
 						<h4><a href="{{url}}" id="yelplink" target="_blank"> {{link}}</a></h4>
+						<! <img ng-src="{{rimage}}" id="restaurantImg">
+
+
+
 					</div>
 
 
@@ -102,6 +115,10 @@
 		<div id="footer">
 
 			<p>&copy; 2016 Rashul Rajbhandari<p>
+			<p>
+				Thanks to <i class="fa fa-yelp fa-lg" aria-hidden="true"></i>
+					and <i class="fa fa-google fa-lg" aria-hidden="true"></i>
+			</p>
 
 		</div>
 
@@ -118,6 +135,7 @@
 
 	<script src="controller/service.js"></script>
 	<script src="controller/controller.js"></script>
+
 
 
 </body>

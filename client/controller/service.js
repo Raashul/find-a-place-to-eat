@@ -5,7 +5,7 @@ app.service('filterdata', function(){
 	this.filter = function(data){
 
 		var filterarray = [];
-		for(var i=0; i < 5; i++){
+		for(var i=0; i < 7; i++){
 			var item =  data[Math.floor(Math.random()*data.length)];
 
 			filterarray.push(item);

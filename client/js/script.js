@@ -24,10 +24,13 @@ document.getElementById('reset').addEventListener('click', function(e){
 	map = mapster.create(element, options);
 });
 
-// document.getElementById('next').addEventListener('click', function(e){
-// 	map.clear();
-// 	map = mapster.create(element, options);
-// });
+
+
+// -----> Function for NEXT button <-------
+document.getElementById('next').addEventListener('click', function(e){
+	map.next();
+	map = mapster.create(element, options);
+});
 
 
 
