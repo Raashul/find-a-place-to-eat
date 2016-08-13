@@ -4,6 +4,10 @@ html, body{
 }
 
 
+.mainContainer{
+    background-color: #EFEFEF;
+}
+
 .intro{
     height: 50px;
     font-weight: bold;
@@ -60,6 +64,7 @@ html, body{
     bottom: 0;
     width: 100%;
     font-size: 1em;
+    margin-top: 10px;
 }
 
 #footer p{
@@ -94,9 +99,13 @@ html, body{
         margin-top: 10px;
         margin-left: 12px;
         padding: 0 11px 0 13px;
-        width: 350px;
+        width: 550px;
         line-height: 30px;
+        text-align: center;
+
       }
+
+
 
 .yelp{
         margin-top: 40px;
@@ -145,7 +154,14 @@ html, body{
 }
 
 
+.m-left{
+    margin-left: 15px;
+}
 
+.m-left:hover{
+    cursor: pointer;
+    font-size: 40px;
+ }
 
 
 

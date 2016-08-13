@@ -109,19 +109,28 @@
 				//Function for next button: This function will clear all markers but not hide result <div>
 			next : function(){
 
-				var request = {
-				    query: localStorage.getItem('restaurant')
-				  };
 
-				   var service = new google.maps.places.PlacesService();
-					  service.textSearch(request, callback);
+/* -----------> google place photo <------------
+
+				 var service = new google.maps.places.PlacesService(map.gMap);
+        service.getDetails({
+          placeId: "ChIJ5TIx9aaqw4kRsWj59AeSkIE"
+        }, function(place, status) {
+          if (status === google.maps.places.PlacesServiceStatus.OK) {
+          	console.log(place);
 
 
-					function callback(results, status) {
-				  if (status == google.maps.places.PlacesServiceStatus.OK) {
-				    console.log(results);
-				  }
-				}
+          	for(var i=0; i < place.photos.length; i++){
+          		console.log(place.photos[i].getUrl({'maxWidth': 400, 'maxHeight': 400}));
+          	}
+
+
+
+          }
+        });
+
+
+*/
 
 
 

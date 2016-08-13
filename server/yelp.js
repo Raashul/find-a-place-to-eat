@@ -39,6 +39,7 @@ app.post('/getyelp', function(req, res){
 	})
 	.catch(function (err) {
 	  console.error(err);
+
 	});
 
 })

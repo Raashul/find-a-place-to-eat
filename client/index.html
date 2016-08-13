@@ -14,111 +14,128 @@
           href="https://fonts.googleapis.com/css?family=Tangerine|Inconsolata|Droid+Sans">
 </head>
 
-<body ng-app= "myApp" ng-controller = "AppCtrl">
+<body ng-app= "myApp">
 
-	<div class="intro">
-			<p class="lead">Find a place to eat with a click of a button!</p>
+<div ng-controller = "AppCtrl">
 
-		</div>
-
-
-	<div class="container">
-
-		<div class="settings">
-
-			<div class="row">
-
-				<div class="col-md-6 col-md-offset-3 option1" >
-				<input id="input"  type="text" size="60" ng-model="input" googleplace>
-				</div>
+		<div class="intro">
+				<p class="lead">Find a place to eat with a click of a button!</p>
 
 			</div>
 
-			<div class="buttons row">
+	<div class="mainContainer">
 
-				<div class="col-md-6 col-md-offset-3">
+		<div class="container">
 
-					<button id="yelpbutton"  ng-click="search()" class="btn btn-success search">Find me a place to Eat</button>
-
-				</div>
+			<div class="settings">
 
 				<div class="row">
-					<div class=".col-md-4 col-md-offset-4">
-					<button id="next" class="btn btn-primary" ng-show = "show" ng-click="next()">Next</button>
-					<button id="reset" class="btn btn-danger"  ng-show = "show" ng-click="reset()">Reset</button>
+
+					<div class="col-md-6 col-md-offset-3 option1" >
+					<input id="input" placeholder = "Quick. I am starving" type="text" size="60" ng-model="input" googleplace>
+					</div>
+
+				</div>
+
+				<div class="buttons row">
+
+					<div class="col-md-6 col-md-offset-4">
+
+						<button id="yelpbutton"  ng-click="search()" class="btn btn-success search">Find me a place to Eat</button>
+
+					</div>
+
+					<div class="row">
+						<div class=".col-md-4 col-md-offset-4">
+						<button id="next" class="btn btn-primary" ng-show = "show" ng-click="next()">Next</button>
+						<button id="reset" class="btn btn-danger"  ng-show = "show" ng-click="reset()">Reset</button>
+						</div>
+
+
 					</div>
 
 
 				</div>
 
 
-			</div>
-
-
-			<hr>
-
-		</div>
-
-
-
-		<div id="result">
-
-			<h4>{{display_name}}</h4>
-			<img ng-src="{{rating_img}}">
-			<p><q>{{snippet}}</q></p>
-			<strong id="modify"></strong>
-		</div>
-
-
-			<div class="row inline">
-
-				<div class="col-md-6">
-					<button id="button" ng-show = "show" class="btn btn-info btn-xs">Show Direction</button>
-
-					<div id="map-canvas">
-
-					</div>
-
-				</div>
-
-
-				<div class="col-md-6 yelp">
-
-					<div class="yelp-background">
-
-						<h4> {{name}}</h4>
-						<h4>{{address}}</h4>
-						<h4> {{status}}</h4>
-						<h4>{{rating}}</h4>
-						<h4>{{contact}}</h4>
-						<h4><a href="{{url}}" id="yelplink" target="_blank"> {{link}}</a></h4>
-						<! <img ng-src="{{rimage}}" id="restaurantImg">
-
-
-
-					</div>
-
-
-
-				</div>
-
+				<hr>
 
 			</div>
 
 
 
+			<div id="result">
+
+				<h4>{{display_name}}</h4>
+				<img ng-src="{{rating_img}}">
+				<p><q>{{snippet}}</q></p>
+				<strong id="modify"></strong>
+			</div>
+
+				<div class="row inline">
+
+					<div class="col-md-6">
+						<button id="button" ng-show = "show" class="btn btn-info btn-xs">Show Direction</button>
+
+						<div id="map-canvas">
+
+						</div>
+
+					</div>
+
+
+					<div class="col-md-6 yelp">
+
+						<div class="yelp-background">
+
+							<h4> {{name}}</h4>
+							<h4>{{address}}</h4>
+							<h4> {{status}}</h4>
+							<h4>{{rating}}</h4>
+							<h4>{{contact}}</h4>
+							<h4><a href="{{url}}" id="yelplink" target="_blank"> {{link}}</a></h4>
+							<! <img ng-src="{{rimage}}" id="restaurantImg">
+
+
+
+						</div>
+
+
+
+					</div>
+
+
+				</div>
+
+
+
+
+
+		</div>
 
 
 	</div>
 
+</div>
 
-		<div id="footer">
+
+		<div id="footer" ng-controller = "footerController">
 
 			<p>&copy; 2016 Rashul Rajbhandari<p>
 			<p>
 				Thanks to <i class="fa fa-yelp fa-lg" aria-hidden="true"></i>
 					and <i class="fa fa-google fa-lg" aria-hidden="true"></i>
+					and <strong> Prashish Rajbhandari </strong>
 			</p>
+			<p>Contact</p>
+			<p>
+					<i class="fa fa-facebook-official fa-3x m-left" ng-click="fb()"></i>
+					<i class="fa fa-github fa-3x m-left" ng-click="git()"></i>
+					<i class="fa fa-twitter fa-3x m-left" ng-click ="twitter()"></i>
+					<i class="fa fa-medium fa-3x m-left" ng-click="medium()"></i>
+
+			</p>
+
 
 		</div>
 
@@ -135,6 +152,7 @@
 
 	<script src="controller/service.js"></script>
 	<script src="controller/controller.js"></script>
+	<script src="controller/footer-controller.js"></script>
 
 
 

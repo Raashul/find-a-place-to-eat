@@ -7,6 +7,7 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
     var autocompleteFrom = new google.maps.places.Autocomplete(inputFrom);
     google.maps.event.addListener(autocompleteFrom, 'place_changed', function() {
         var place = autocompleteFrom.getPlace();
+        console.log(place);
 
         var placeName = place.formatted_address;
 

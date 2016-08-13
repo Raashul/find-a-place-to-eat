@@ -36,6 +36,7 @@ document.getElementById('next').addEventListener('click', function(e){
 
 
 //Geocoder
+
 button = document.getElementById('button');
 
 	button.addEventListener('click', function(e){
