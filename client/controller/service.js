@@ -6,9 +6,14 @@ app.service('filterdata', function(){
 
 		var filterarray = [];
 		for(var i=0; i < 7; i++){
+
 			var item =  data[Math.floor(Math.random()*data.length)];
 
+
+
 			filterarray.push(item);
+
+
 		}
 		return filterarray;
 	}

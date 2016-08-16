@@ -16,6 +16,11 @@
 	//this variable will be the location of the user.
 	var input = document.getElementById('input');
 
+// Added RESET button to reset google map.
+document.getElementById('displayPhotos').addEventListener('click', function(e){
+	map.photos();
+
+});
 
 
 // Added RESET button to reset google map.
@@ -35,7 +40,7 @@ document.getElementById('next').addEventListener('click', function(e){
 
 
 
-//Geocoder
+//Direction button
 
 button = document.getElementById('button');
 
@@ -45,6 +50,9 @@ button = document.getElementById('button');
 		address: input.value
 	}, function(results, status){
 		if(status === google.maps.GeocoderStatus.OK){
+
+
+
 			var result = results[0];
 
 
@@ -70,7 +78,7 @@ button = document.getElementById('button');
 				restaurant = results[0];
 
 				restaurant = restaurant.formatted_address;
-				console.log('final destination is ' + restaurant);
+				//console.log('final destination is ' + restaurant);
 				find(result, restaurant);
 			}
 		})
@@ -103,7 +111,7 @@ function find(result, restaurant){
 		origin: input.value,
 		name: result.formatted_address
 	});
-		console.log('find function success');
+
 	}
 
 

@@ -24,15 +24,19 @@ app.post('/getyelp', function(req, res){
 
 	console.log('post request here');
 
+	var searchRestaurant		= req.body.restaurant;
+	var yelpLocation 				= req.body.location;
 
-	var yelpLocation = req.body.input;
+	console.log(searchRestaurant);
+	console.log(yelpLocation);
+
 
 
 	// See http://www.yelp.com/developers/documentation/v2/search_api
-	yelp.search({ term: 'food', location: yelpLocation, radius_filter: 10000})
+	yelp.search({ location: yelpLocation, term: searchRestaurant})
 	.then(function (data) {
 
-		console.log(data.businesses[0]);
+		console.log(data);
 
 		res.json(data); // I will return all the data recieved from YELP API. I will filter the data in controller.js
 
