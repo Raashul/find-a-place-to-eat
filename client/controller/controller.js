@@ -8,6 +8,8 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
     var autocompleteFrom = new google.maps.places.Autocomplete(inputFrom);
     google.maps.event.addListener(autocompleteFrom, 'place_changed', function() {
+
+
         var place = autocompleteFrom.getPlace();
 
         var placeName = place.formatted_address;
@@ -63,18 +65,26 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
                       placeId: id
                     }, function(result, status){
                       if(status === google.maps.places.PlacesServiceStatus.OK){
-
+                        console.log('results below');
                         console.log(result);
+
 
                         $scope.restaurantName = result.name;
 
-
+                        //store reviews in scope variable
+                        //$scope.reviews      = result.reviews;
 
                       if(result.photos){
+                        $scope.listOfPhotos = [];
                         for(var i=0; i < result.photos.length; i++){
-                          $scope.listOfPhotos = result.photos[i].getUrl({'maxWidth': 200, 'maxHeight': 200});
-                          console.log($scope.listOfPhotos);
+                          var photos = result.photos[i].getUrl({'maxWidth': 200, 'maxHeight': 200});
+                         $scope.listOfPhotos.push(photos);
+                         //$scope.test = $scope.photos
+
                         }
+                      }
+                      else{
+                        $scope.listOfPhotos = "No photos to display"
                       }
 
 
@@ -116,9 +126,6 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
       // console.log($scope.filterdata);
 
       console.log($scope.restaurantName);
-
-
-
 
 
       var server = {location: $scope.place, restaurant: $scope.restaurantName};
@@ -315,6 +322,13 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
 
     } //end of next
+
+
+    $scope.geocode = function(){
+
+
+
+    }
 
 
 

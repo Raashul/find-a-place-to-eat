@@ -3,6 +3,7 @@
 	<title>Map</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
 	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -51,12 +52,10 @@
 						<button id="reset" class="btn btn-danger"  ng-show = "show" ng-click="reset()">Reset</button>
 						</div>
 
-
 					</div>
 
 
 				</div>
-
 
 				<hr>
 
@@ -72,16 +71,16 @@
 			</div>
 
 
-				<div class="row inline">
+			<div class="row inline">
 
-					<div class="col-md-6">
-						<button id="button" ng-show = "show" class="btn btn-info btn-xs">Show Direction</button>
+				<div class="col-md-6">
+					<button id="button" ng-show = "show" class="btn btn-info btn-xs">Show Direction</button>
 
-						<div id="map-canvas">
-
-						</div>
+					<div id="map-canvas">
 
 					</div>
+
+				</div>
 
 
 
@@ -96,21 +95,65 @@
 							<h4>{{contact}}</h4
 							<h4><a href="{{url}}" id="yelplink" target="_blank"> {{link}}</a></h4>
 
+							<!--
+							<div class="list-group" data-ng-repeat = "review in reviews">
+								<ul class="reviewlist">
+							  	<li class="list-group-item list-group-item-action list-group-item-info">{{review.author_name}}</strong> : {{review.text}}</a>
+							  </ul>
+							</div>
 
+							-->
 
 						</div>
+
 
 					</div>
 
 				</div>
 
-			<div>
+				<div class="slideshow-container">
 
-			<button id="displayPhotos">Display Photos</button>
+				  <div class="mySlides">
+				    	<img ng-src="{{listOfPhotos[0]}}" class="image">
+				  </div>
 
-			</div>
+
+				  <div class="mySlides">
+
+				    	<img ng-src="{{listOfPhotos[1]}}" class="image">
 
 
+				  </div>
+
+
+				  <div class="mySlides">
+
+				    	<img ng-src="{{listOfPhotos[2]}}" class="image">
+
+				  </div>
+
+
+				  <div class="mySlides">
+
+				    	<img ng-src="{{listOfPhotos[3]}}" class="image">
+
+				  </div>
+
+				   <div class="mySlides">
+
+				    	<img ng-src="{{listOfPhotos[4]}}" class="image">
+
+				  </div>
+
+				   <div class="mySlides">
+
+				    	<img ng-src="{{listOfPhotos[5]}}" class="image">
+
+				  </div>
+
+
+
+				</div>
 
 
 		</div>
@@ -150,6 +193,7 @@
 	<script src="js/Mapster.js"></script>
 	<script src="js/map-options.js"> </script>
 	<script src="js/script.js"> </script>
+	<script type="text/javascript" src="js/slideshow_style.js"></script>
 
 	<script src="app.js"></script>
 

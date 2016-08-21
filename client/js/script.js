@@ -16,11 +16,6 @@
 	//this variable will be the location of the user.
 	var input = document.getElementById('input');
 
-// Added RESET button to reset google map.
-document.getElementById('displayPhotos').addEventListener('click', function(e){
-	map.photos();
-
-});
 
 
 // Added RESET button to reset google map.

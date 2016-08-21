@@ -10,7 +10,6 @@ app.service('filterdata', function(){
 			var item =  data[Math.floor(Math.random()*data.length)];
 
 
-
 			filterarray.push(item);
 
 
