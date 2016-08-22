@@ -18,96 +18,6 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
 
 
-      var geocoder = new google.maps.Geocoder();
-      geocoder.geocode({
-              address: placeName
-            }, function(results, status){
-              if(status === google.maps.GeocoderStatus.OK){
-
-                address = results[0];
-
-                  var location = {
-                    lat: address.geometry.location.lat(),
-                    lng: address.geometry.location.lng()
-                  };
-
-                var service = new google.maps.places.PlacesService(map.gMap);
-
-                var request = {
-                  location: location,
-                 // placeId: restaurant.place_id,
-                  type: ['restaurant'],
-                  radius: '5000'
-                };
-                service.nearbySearch(
-                 request,
-                 function(place, status) {
-                  if (status === google.maps.places.PlacesServiceStatus.OK) {
-
-
-                    //filterdata is an array of buisnesses.
-                  $scope.filterdata = filterdata.filter(place);
-
-                  console.log('filter data');
-                  console.log($scope.filterdata);
-
-
-                  //this will be used for the reset button
-                  $scope.resetR = $scope.filterdata;
-
-
-                  var listOfRestaurants = $scope.filterdata;
-
-
-                  var id = listOfRestaurants[0].place_id;
-
-                    service.getDetails({
-                      placeId: id
-                    }, function(result, status){
-                      if(status === google.maps.places.PlacesServiceStatus.OK){
-                        console.log('results below');
-                        console.log(result);
-
-
-                        $scope.restaurantName = result.name;
-
-                        //store reviews in scope variable
-                        //$scope.reviews      = result.reviews;
-
-                      if(result.photos){
-                        $scope.listOfPhotos = [];
-                        for(var i=0; i < result.photos.length; i++){
-                          var photos = result.photos[i].getUrl({'maxWidth': 200, 'maxHeight': 200});
-                         $scope.listOfPhotos.push(photos);
-                         //$scope.test = $scope.photos
-
-                        }
-                      }
-                      else{
-                        $scope.listOfPhotos = "No photos to display"
-                      }
-
-
-
-                      } //end of service if
-
-
-                    })
-
-
-
-              }
-            })
-
-
-
-          }
-        });
-
-
-
-
-
     }); //end of autocomplete function.
 
 
@@ -115,17 +25,10 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
     // This function will recieve data from the server, filter the data , and respond back to the DOM
     $scope.search = function() {
 
-      // var listOfRestaurants = [];
+      document.getElementById('map-canvas').style.visibility="visible";
 
-      // var input = {input: $scope.place}
-
-      // var restaurantlist = findRestaurant(input);
-      // var restaurant     = restaurantlist[0];
-
-      // console.log('here');
-      // console.log($scope.filterdata);
-
-      console.log($scope.restaurantName);
+      //call the geocode function
+      $scope.geocode($scope.place);
 
 
       var server = {location: $scope.place, restaurant: $scope.restaurantName};
@@ -147,9 +50,6 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
           //scope.yelp is undefined outside this function.
          //  var name            = response.name;
          //  console.log('name found ' + name);
-
-
-
 
 
 
@@ -217,17 +117,18 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
   $scope.reset = function(){
 
-      $scope.link = "";
-      $scope.address = "";
-      $scope.name = "";
-      $scope.rating = "";
-      $scope.status = "";
-      $scope.contact = "";
-      $scope.url = "";
-      $scope.display_name = "";
-      $scope.rating_img   = "";
-      $scope.snippet = "";
-      $scope.rimage = "";
+      $scope.link           = "";
+      $scope.address        = "";
+      $scope.name           = "";
+      $scope.rating         = "";
+      $scope.status         = "";
+      $scope.contact        = "";
+      $scope.url            = "";
+      $scope.display_name   = "";
+      $scope.rating_img     = "";
+      $scope.snippet        = "";
+      $scope.rimage         = "";
+      $scope.displayWebsite = "";
 
     }
 
@@ -256,8 +157,9 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
       else{
 
-          restaurant.splice(number, 1);
-          console.log(restaurant);
+          $scope.filterdata.splice(number, 1);
+
+          $scope.getDetails();
 
           var server = {location: $scope.place, restaurant: restaurant[number].name};
 
@@ -292,6 +194,7 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
 
             $scope.link   = "Check out " + reviewCount + " reviews "+ " in Yelp ";
+
             $scope.contact  = "Contact : " + contact;
             $scope.url      = url;
             $scope.display_name = name;
@@ -324,11 +227,113 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
     } //end of next
 
 
-    $scope.geocode = function(){
+    $scope.geocode = function(placeName){
+
+
+      var geocoder = new google.maps.Geocoder();
+      geocoder.geocode({
+              address: placeName
+            }, function(results, status){
+              if(status === google.maps.GeocoderStatus.OK){
+
+                address = results[0];
+
+                  var location = {
+                    lat: address.geometry.location.lat(),
+                    lng: address.geometry.location.lng()
+                  };
+
+                var service = new google.maps.places.PlacesService(map.gMap);
+
+                var request = {
+                  location: location,
+                 // placeId: restaurant.place_id,
+                  type: ['restaurant'],
+                  radius: '5000'
+                };
+                service.nearbySearch(
+                 request,
+                 function(place, status) {
+                  if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    //filterdata is an array of buisnesses.
+                    $scope.filterdata = filterdata.filter(place);
+
+                    console.log('filter data');
+                    console.log($scope.filterdata);
+
+
+                    //this will be used for the reset button
+                    $scope.resetR = $scope.filterdata;
+
+                    //call the getdetail method.
+                    $scope.getDetails();
+
+
+              }
+            })
 
 
 
-    }
+          }
+        });
+
+
+
+
+    } //end of geocode function
+
+
+    $scope.getDetails = function(){
+
+      var service = new google.maps.places.PlacesService(map.gMap);
+      var listOfRestaurants = $scope.filterdata;
+
+
+      var id = listOfRestaurants[0].place_id;
+
+        service.getDetails({
+          placeId: id
+        }, function(result, status){
+          if(status === google.maps.places.PlacesServiceStatus.OK){
+            console.log('results below');
+            console.log(result);
+
+
+            $scope.restaurantName = result.name;
+
+
+            //display website
+            $scope.website        =  result.website;
+
+            $scope.displayWebsite = "Website : " + $scope.website;
+
+            $scope.web            = "Website : "
+
+            //store reviews in scope variable
+            $scope.reviews      = result.reviews;
+
+          if(result.photos){
+            $scope.listOfPhotos = [];
+            for(var i=0; i < result.photos.length; i++){
+              var photos = result.photos[i].getUrl({'maxWidth': 200, 'maxHeight': 200});
+             $scope.listOfPhotos.push(photos);
+             //$scope.test = $scope.photos
+
+            }
+          }
+          else{
+            $scope.listOfPhotos = "No photos to display"
+          }
+
+
+
+          } //end of service if
+
+
+        })
+
+
+    } //end of getDetail function.
 
 
 

@@ -43,6 +43,9 @@ html, body{
 }
 
 
+#websitelink{
+    color: #D32323;
+}
 
 #yelplink{
     color: #D32323;
@@ -52,6 +55,7 @@ html, body{
 #map-canvas{
     height: 70%;
     width: 100%;
+    visibility: hidden;
 
 
 }
@@ -195,8 +199,8 @@ html, body{
 }
 
 .image:hover{
-    height: 120px;
-    width: 170px;
+    height: 90px;
+    width: 13displayWebsitem0px;
 }
 
 
