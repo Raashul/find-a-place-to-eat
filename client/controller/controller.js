@@ -26,6 +26,9 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
     $scope.search = function() {
 
       document.getElementById('map-canvas').style.visibility="visible";
+      document.getElementById('slideshow').style.visibility = "visible";
+
+     // newTyped();
 
       //call the geocode function
       $scope.geocode($scope.place);

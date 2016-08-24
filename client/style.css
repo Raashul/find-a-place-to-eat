@@ -10,12 +10,6 @@ html, body{
 
 
 
-.intro{
-    height: 50px;
-    font-weight: bold;
-    background-color: black;
-
-}
 
 .lead{
     padding-top: 5px;
@@ -23,7 +17,7 @@ html, body{
     padding-left: 30px;
 }
 .settings{
-    margin-top: 40px;
+    margin-top: 10px;
 }
 
 .option1{
@@ -70,7 +64,7 @@ html, body{
     bottom: 0;
     width: 100%;
     font-size: 1em;
-    margin-top: 10px;
+    margin-top: 40px;
 }
 
 #footer p{
@@ -108,6 +102,7 @@ html, body{
         width: 550px;
         line-height: 30px;
         text-align: center;
+        height: 40px;
 
       }
 
@@ -187,7 +182,7 @@ html, body{
   margin: auto;
   width: 100%;
   margin: 0 auto;
-
+  visibility: hidden;
 
 }
 
@@ -200,9 +195,32 @@ html, body{
 
 .image:hover{
     height: 90px;
-    width: 13displayWebsitem0px;
+    width: 130px;
 }
 
+.typed-cursor{
+            opacity: 1;
+            font-size: 1.2em;
+            -webkit-animation: blink 0.7s infinite;
+            -moz-animation: blink 0.7s infinite;
+            -ms-animation: blink 0.7s infinite;
+            -o-animation: blink 0.7s infinite;
+            animation: blink 0.7s infinite;
+}
+
+.intro{
+    height: 55px;
+    text-align: center;
+}
+
+#typed-strings{
+    margin-top: 50px;
+}
+
+#typed{
+    font-size: 1.2em;
+    font-family: "Inconsolata", serif;
+}
 
 
 
