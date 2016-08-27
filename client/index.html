@@ -33,7 +33,7 @@
 
 				</div>
 
-		</div>
+			</div>
 
 
 			<div class="settings">
@@ -50,7 +50,7 @@
 
 					<div class="col-md-6 col-md-offset-4">
 
-						<button id="yelpbutton"  ng-click="search()" class="btn btn-success search">Find me a place to Eat</button>
+						<button id="yelpbutton"  ng-click="search()" class="btn btn-secondary search">Find me a place to Eat</button>
 
 					</div>
 
@@ -96,31 +96,69 @@
 
 						<div class="yelp-background">
 
-							<h4> {{name}}</h4>
-							<h4>{{address}}</h4>
-							<h4> {{status}}</h4>
-							<h4>{{rating}}</h4>
-							<h4>{{contact}}</h4
-							<h4><a href="{{website}}" id="websitelink" target="_blank">{{displayWebsite}}</a></h4>
-							<h4><a href="{{url}}" id="yelplink" target="_blank"> {{link}}</a></h4>
+							<h5> {{name}}</h5>
+							<h5>{{address}}</h5>
+							<h5> {{status}}</h5>
+							<h5>{{rating}}</h5>
+							<h5>{{contact}}</h5>
+							<h5><a href="{{website}}" id="websitelink" target="_blank">{{displayWebsite}}</a></h4>
+							<h5><a href="{{url}}" id="yelplink" target="_blank"> {{link}}</a></h4>
 
-							<!--
-							<div class="list-group" data-ng-repeat = "review in reviews">
-								<ul class="reviewlist">
-							  	<li class="list-group-item list-group-item-action list-group-item-info">{{review.author_name}}</strong> : {{review.text}}</a>
-							  </ul>
-							</div>
 
-							-->
 
-						</div>
+					<div id="accordion" role="tablist" aria-multiselectable="true">
+
+				  <div class="panel panel-default">
+				    <div class="panel-heading" role="tab" id="headingOne">
+				      <h4 class="panel-title">
+				        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+				          {{reviews[0].author_name}} Rated- {{reviews[0].rating}}/5 : {{reviews[0].text}}
+				        </a>
+				      </h4>
+				    </div>
+				    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+				      {{reviews[0].text}}
+				    </div>
+				  </div>
+
+				  <div class="panel panel-default">
+				    <div class="panel-heading" role="tab" id="headingTwo">
+				      <h4 class="panel-title">
+				        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+				          {{reviews[1].author_name}} Rated- {{reviews[1].rating}}/5 : {{reviews[1].text}}
+				        </a>
+				      </h4>
+				    </div>
+				    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+				      {{reviews[1].text}}
+				    </div>
+				  </div>
+				  <div class="panel panel-default">
+				    <div class="panel-heading" role="tab" id="headingThree">
+				      <h4 class="panel-title">
+				        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+				          {{reviews[2].author_name}} Rated- {{reviews[2].rating}}/5 : {{reviews[2].text}}
+				        </a>
+				      </h4>
+				    </div>
+				    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+				      {{reviews[2].text}}
+				    </div>
+				  </div>
+				</div>
 
 
 					</div>
 
+
+
 				</div>
 
-				<div class="slideshow-container" id="slideshow">
+		</div>
+
+	</div>
+
+		<div class="slideshow-container" id="slideshow">
 
 				  <div class="mySlides">
 				    	<img ng-src="{{listOfPhotos[0]}}" class="image">
@@ -163,13 +201,6 @@
 
 				</div>
 
-
-		</div>
-
-
-
-	</div>
-
 </div>
 
 
@@ -196,8 +227,13 @@
 
 
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDs9B3tpfCGaVmvWZ-gdMbvckaiU4Q8Azw&libraries=places" type="text/javascript"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
 	<script src="app.js"></script>
 	<script src="js/typed.js" type="text/javascript"></script>
   <script src="js/typedjs_script.js"></script>

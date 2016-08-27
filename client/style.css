@@ -56,7 +56,7 @@ html, body{
 
 .search{
     width: 357px;
-    background-color: green !important;
+
 }
 
 #footer {
@@ -109,7 +109,7 @@ html, body{
 
 
 .yelp{
-        margin-top: 40px;
+        margin-top: 20px;
         height: 400px;
         width: 100%;
       }
@@ -178,6 +178,7 @@ html, body{
 
 .slideshow-container {
   max-width: 1000px;
+  margin-top: 30px;
   margin-bottom: 20px;
   margin: auto;
   width: 100%;
@@ -188,14 +189,14 @@ html, body{
 
 .image{
   float: left;
-  height: 80px;
-  width: 120px;
+  height: 200px;
+  width: 200px;
   margin-left: 5px;
 }
 
 .image:hover{
-    height: 90px;
-    width: 130px;
+    height: 250px;
+    width: 250px;
 }
 
 .typed-cursor{
@@ -222,7 +223,31 @@ html, body{
     font-family: "Inconsolata", serif;
 }
 
+#accordion{
+    margin-top: 30px;
+    visibility: hidden;
 
+}
+
+.panel-heading{
+    margin-top: -15px;
+}
+
+.panel-title{
+
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.panel-title a{
+     font-size: 0.9em;
+     font-weight: bold;
+}
+
+.panel-collapse{
+    font-size: 0.8em
+}
 
 
 
