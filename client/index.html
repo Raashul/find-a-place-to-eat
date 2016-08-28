@@ -1,7 +1,7 @@
 <html>
 <head>
 	<title>Map</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+
 
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -13,6 +13,8 @@
 
 	<link rel="stylesheet" type="text/css"
           href="https://fonts.googleapis.com/css?family=Tangerine|Inconsolata|Droid+Sans">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body ng-app= "myApp">
@@ -101,51 +103,51 @@
 							<h5> {{status}}</h5>
 							<h5>{{rating}}</h5>
 							<h5>{{contact}}</h5>
-							<h5><a href="{{website}}" id="websitelink" target="_blank">{{displayWebsite}}</a></h4>
-							<h5><a href="{{url}}" id="yelplink" target="_blank"> {{link}}</a></h4>
+							<h5><a href="{{website}}" class="result_link" target="_blank">{{displayWebsite}}</a></h5>
+							<h5><a href="{{url}}" class="result_link" target="_blank"> {{link}}</a></h5>
 
 
 
-					<div id="accordion" role="tablist" aria-multiselectable="true">
+						<div id="accordion" role="tablist" aria-multiselectable="true">
 
-				  <div class="panel panel-default">
-				    <div class="panel-heading" role="tab" id="headingOne">
-				      <h4 class="panel-title">
-				        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-				          {{reviews[0].author_name}} Rated- {{reviews[0].rating}}/5 : {{reviews[0].text}}
-				        </a>
-				      </h4>
-				    </div>
-				    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-				      {{reviews[0].text}}
-				    </div>
-				  </div>
+						  <div class="panel panel-default">
+						    <div class="panel-heading" role="tab" id="headingOne">
+						      <h4 class="panel-title">
+						        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+						          {{reviews[0].author_name}}, Rates- {{reviews[0].rating}}/5 : {{reviews[0].text}}
+						        </a>
+						      </h4>
+						    </div>
+						    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+						      {{reviews[0].text}}
+						    </div>
+						  </div>
 
-				  <div class="panel panel-default">
-				    <div class="panel-heading" role="tab" id="headingTwo">
-				      <h4 class="panel-title">
-				        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-				          {{reviews[1].author_name}} Rated- {{reviews[1].rating}}/5 : {{reviews[1].text}}
-				        </a>
-				      </h4>
-				    </div>
-				    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-				      {{reviews[1].text}}
-				    </div>
-				  </div>
-				  <div class="panel panel-default">
-				    <div class="panel-heading" role="tab" id="headingThree">
-				      <h4 class="panel-title">
-				        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-				          {{reviews[2].author_name}} Rated- {{reviews[2].rating}}/5 : {{reviews[2].text}}
-				        </a>
-				      </h4>
-				    </div>
-				    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-				      {{reviews[2].text}}
-				    </div>
-				  </div>
-				</div>
+						  <div class="panel panel-default">
+						    <div class="panel-heading" role="tab" id="headingTwo">
+						      <h4 class="panel-title">
+						        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+						          {{reviews[1].author_name}}, Rates- {{reviews[1].rating}}/5 : {{reviews[1].text}}
+						        </a>
+						      </h4>
+						    </div>
+						    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+						      {{reviews[1].text}}
+						    </div>
+						  </div>
+						  <div class="panel panel-default">
+						    <div class="panel-heading" role="tab" id="headingThree">
+						      <h4 class="panel-title">
+						        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+						          {{reviews[2].author_name}}, Rates- {{reviews[2].rating}}/5 : {{reviews[2].text}}
+						        </a>
+						      </h4>
+						    </div>
+						    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+						      {{reviews[2].text}}
+						    </div>
+						  </div>
+					</div>
 
 
 					</div>
@@ -154,9 +156,11 @@
 
 				</div>
 
+
+
 		</div>
 
-	</div>
+
 
 		<div class="slideshow-container" id="slideshow">
 
@@ -199,7 +203,13 @@
 
 
 
-				</div>
+			</div>
+
+
+
+	</div>
+
+	</div>
 
 </div>
 

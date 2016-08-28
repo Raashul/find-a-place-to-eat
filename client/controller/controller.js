@@ -260,6 +260,7 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
       $scope.rimage         = "";
       $scope.displayWebsite = "";
       $scope.listOfPhotos   = "";
+      $scope.reviews        = "";
 
     }
 
@@ -285,7 +286,7 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
 
 
-          $scope.displayWebsite = "Website : " + $scope.website;
+          $scope.displayWebsite = "Click to visit website";
 
           $scope.web            = "Website : "
 
@@ -310,7 +311,7 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
 
 
-          $scope.link   = "Check out " + reviewCount + " reviews "+ " in Yelp ";
+          $scope.link   = "Click to check out " + reviewCount + " reviews "+ " in Yelp ";
           $scope.contact  = "Contact : " + contact;
           $scope.url      = url;
           $scope.display_name = name;

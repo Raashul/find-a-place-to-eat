@@ -6,6 +6,7 @@ html, body{
 
 .mainContainer{
     background-color: #EFEFEF;
+
 }
 
 
@@ -16,9 +17,7 @@ html, body{
     color: white;
     padding-left: 30px;
 }
-.settings{
-    margin-top: 10px;
-}
+
 
 .option1{
    margin-bottom: 20px;
@@ -37,13 +36,10 @@ html, body{
 }
 
 
-#websitelink{
-    color: #D32323;
+.result_link{
+    color: #088AB2;
 }
 
-#yelplink{
-    color: #D32323;
-}
 
 
 #map-canvas{
@@ -96,7 +92,7 @@ html, body{
         font-family: Roboto;
         font-size: 15px;
         font-weight: 300;
-        margin-top: 10px;
+
         margin-left: 12px;
         padding: 0 11px 0 13px;
         width: 550px;
@@ -215,7 +211,7 @@ html, body{
 }
 
 #typed-strings{
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 #typed{

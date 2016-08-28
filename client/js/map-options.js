@@ -8,7 +8,7 @@
 		zoom: 14,
 		disableDefaultUI: false,
 		//scrollwheel: false,
-		minZoom:13,
+		minZoom:10,
 		//maxzoom
 		//mapTypeId: google.map.MapTypeId.ROADMAP
 		zoomControlOptions :{
