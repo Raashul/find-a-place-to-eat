@@ -23,7 +23,7 @@
 
 	<div class="mainContainer">
 
-		<div class="container">
+		<div class="container" ng-hide="myValue">
 
 			<div class="intro">
 
@@ -43,7 +43,7 @@
 				<div class="row">
 
 					<div class="col-md-6 col-md-offset-3 option1" >
-					<input id="input" placeholder = "Quick. I am starving" type="text" size="70" ng-model="input" googleplace>
+					<input id="input" placeholder = "Type in your adddres. Let's find you a place to eat." type="text" size="70" ng-model="input" googleplace>
 					</div>
 
 				</div>
@@ -52,13 +52,14 @@
 
 					<div class="col-md-6 col-md-offset-4">
 
-						<button id="yelpbutton"  ng-click="search()" class="btn btn-secondary search">Find me a place to Eat</button>
+						<button id="yelpbutton"  ng-click="search()" class="btn btn-secondary search"> <strong>Find a place to eat </strong></button>
 
 					</div>
 
 					<div class="row">
 						<div class=".col-md-4 col-md-offset-4">
 						<button id="next" class="btn btn-primary" ng-show = "show" ng-click="next()">Next</button>
+
 						<button id="reset" class="btn btn-danger"  ng-show = "show" ng-click="reset()">Reset</button>
 						</div>
 
@@ -83,16 +84,6 @@
 
 			<div class="row inline">
 
-				<div class="col-md-6">
-					<button id="button" ng-show = "show" class="btn btn-info btn-xs">Show Direction</button>
-
-					<div id="map-canvas">
-
-					</div>
-
-				</div>
-
-
 
 					<div class="col-md-6 yelp">
 
@@ -106,17 +97,21 @@
 							<h5><a href="{{website}}" class="result_link" target="_blank">{{displayWebsite}}</a></h5>
 							<h5><a href="{{url}}" class="result_link" target="_blank"> {{link}}</a></h5>
 
+							<button id="button" ng-show = "show" class="btn btn-info btn-xs">Show Direction to get there</button>
+
 
 
 						<div id="accordion" role="tablist" aria-multiselectable="true">
 
+							<h5 class="accordion_title">Reviews from <i class="fa fa-google fa-lg" aria-hidden="true"></i></h5>
+
 						  <div class="panel panel-default">
 						    <div class="panel-heading" role="tab" id="headingOne">
-						      <h4 class="panel-title">
+						      <div class="panel-title">
 						        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-						          {{reviews[0].author_name}}, Rates- {{reviews[0].rating}}/5 : {{reviews[0].text}}
+						         <p><strong> <i class="fa fa-arrow-down" aria-hidden="true"></i>{{reviews[0].author_name}}</strong> : <span class="reviewText"> {{reviews[0].rating}}/5 : {{reviews[0].text}} </span> </p>
 						        </a>
-						      </h4>
+						      </div>
 						    </div>
 						    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
 						      {{reviews[0].text}}
@@ -127,7 +122,7 @@
 						    <div class="panel-heading" role="tab" id="headingTwo">
 						      <h4 class="panel-title">
 						        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-						          {{reviews[1].author_name}}, Rates- {{reviews[1].rating}}/5 : {{reviews[1].text}}
+						           <i class="fa fa-arrow-down" aria-hidden="true"></i><p><strong>{{reviews[1].author_name}}</strong> : <span class="reviewText"> {{reviews[1].rating}}/5 : {{reviews[1].text}} </span> </p>
 						        </a>
 						      </h4>
 						    </div>
@@ -139,7 +134,7 @@
 						    <div class="panel-heading" role="tab" id="headingThree">
 						      <h4 class="panel-title">
 						        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-						          {{reviews[2].author_name}}, Rates- {{reviews[2].rating}}/5 : {{reviews[2].text}}
+						           <i class="fa fa-arrow-down" aria-hidden="true"></i><p><strong>{{reviews[2].author_name}}</strong> : <span class="reviewText"> {{reviews[2].rating}}/5 : {{reviews[2].text}} </span> </p>
 						        </a>
 						      </h4>
 						    </div>
@@ -157,6 +152,17 @@
 				</div>
 
 
+				<div class="col-md-6">
+
+
+					<div id="map-canvas">
+
+					</div>
+
+				</div>
+
+
+
 
 		</div>
 
@@ -164,41 +170,44 @@
 
 		<div class="slideshow-container" id="slideshow">
 
+				{{noPhotoText}}
+
 				  <div class="mySlides">
-				    	<img ng-src="{{listOfPhotos[0]}}" class="image">
+
+				    	<a href="{{listOfPhotos[0]}}" target="_blank"><img ng-src="{{listOfPhotos[0]}}" class="image" > </a>
 
 				  </div>
 
 
 				  <div class="mySlides">
-				    	<img ng-src="{{listOfPhotos[1]}}" class="image">
+				    	<a href="{{listOfPhotos[1]}}" target="_blank"><img ng-src="{{listOfPhotos[1]}}" class="image" > </a>
 
 				  </div>
 
 
 				  <div class="mySlides">
-				    	<img ng-src="{{listOfPhotos[2]}}" class="image">
+				    	<a href="{{listOfPhotos[2]}}" target="_blank"><img ng-src="{{listOfPhotos[2]}}" class="image" > </a>
 				  </div>
 
 
 				  <div class="mySlides">
-				    	<img ng-src="{{listOfPhotos[3]}}" class="image">
+				    	<a href="{{listOfPhotos[3]}}" target="_blank"><img ng-src="{{listOfPhotos[3]}}" class="image" > </a>
 				  </div>
 
 				   <div class="mySlides">
-				    <img ng-src="{{listOfPhotos[4]}}" class="image">
+				    <a href="{{listOfPhotos[4]}}" target="_blank"><img ng-src="{{listOfPhotos[4]}}" class="image" > </a>
 				  </div>
 
 				   <div class="mySlides">
-				    	<img ng-src="{{listOfPhotos[5]}}" class="image">
+				    	<a href="{{listOfPhotos[5]}}" target="_blank"><img ng-src="{{listOfPhotos[5]}}" class="image" > </a>
 				  </div>
 
 				  <div class="mySlides">
-				    	<img ng-src="{{listOfPhotos[6]}}" class="image">
+				    	<a href="{{listOfPhotos[6]}}" target="_blank"><img ng-src="{{listOfPhotos[6]}}" class="image" > </a>
 				  </div>
 
 				  <div class="mySlides">
-				    	<img ng-src="{{listOfPhotos[7]}}" class="image">
+				    	<a href="{{listOfPhotos[7]}}" target="_blank"><img ng-src="{{listOfPhotos[7]}}" class="image" > </a>
 				  </div>
 
 
@@ -218,8 +227,8 @@
 
 			<p>&copy; 2016 Rashul Rajbhandari<p>
 			<p>
-				Thanks to <i class="fa fa-yelp fa-lg" aria-hidden="true"></i>
-					and <i class="fa fa-google fa-lg" aria-hidden="true"></i>
+				Thanks to <i class="fa fa-yelp fa-2x" aria-hidden="true"></i> ,
+					 <i class="fa fa-google fa-2x" aria-hidden="true"></i>
 					and <strong> Prashish Rajbhandari </strong>
 			</p>
 			<p>Contact</p>
@@ -243,6 +252,8 @@
 	 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
 
 	<script src="app.js"></script>
 	<script src="js/typed.js" type="text/javascript"></script>

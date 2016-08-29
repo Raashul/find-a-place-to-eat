@@ -25,9 +25,6 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
     // This function will recieve data from the server, filter the data , and respond back to the DOM
     $scope.search = function() {
 
-      document.getElementById('map-canvas').style.visibility="visible";
-      document.getElementById('slideshow').style.visibility = "visible";
-
      // newTyped();
 
       //call the geocode function
@@ -95,6 +92,9 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
     $scope.getDetails = function(){
 
+       document.getElementById('map-canvas').style.visibility="visible";
+      document.getElementById('slideshow').style.visibility = "visible";
+
 
       var service = new google.maps.places.PlacesService(map.gMap);
       var listOfRestaurants = $scope.filterdata;
@@ -133,7 +133,7 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
           if(result.photos){
             $scope.listOfPhotos = [];
             for(var i=0; i < result.photos.length; i++){
-              var photos = result.photos[i].getUrl({'maxWidth': 200, 'maxHeight': 200});
+              var photos = result.photos[i].getUrl({'maxWidth': 600, 'maxHeight': 600});
 
              $scope.listOfPhotos.push(photos);
              //$scope.test = $scope.photos
@@ -141,7 +141,8 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
             }
           }
           else{
-            $scope.listOfPhotos = "No photos to display"
+            document.getElementById('slideshow').style.visibility= "hidden";
+            $scope.noPhotoText = "No photos to display"
           }
 
 
@@ -159,6 +160,8 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
       //<-----------This is the function for the next button-------->
     $scope.next = function(){
+
+
 
       $scope.listOfPhotos = [];
 

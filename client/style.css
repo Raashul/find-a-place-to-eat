@@ -92,13 +92,12 @@ html, body{
         font-family: Roboto;
         font-size: 15px;
         font-weight: 300;
-
         margin-left: 12px;
         padding: 0 11px 0 13px;
-        width: 550px;
+        width: 600px;
         line-height: 30px;
         text-align: center;
-        height: 40px;
+        height: 60px;
 
       }
 
@@ -107,7 +106,7 @@ html, body{
 .yelp{
         margin-top: 20px;
         height: 400px;
-        width: 100%;
+
       }
 
 .yelp-background{
@@ -185,14 +184,14 @@ html, body{
 
 .image{
   float: left;
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
   margin-left: 5px;
+  margin-top: 5px;
 }
 
 .image:hover{
-    height: 250px;
-    width: 250px;
+    transform: scale(1.2);
 }
 
 .typed-cursor{
@@ -215,7 +214,7 @@ html, body{
 }
 
 #typed{
-    font-size: 1.2em;
+    font-size: 1.6em;
     font-family: "Inconsolata", serif;
 }
 
@@ -224,6 +223,12 @@ html, body{
     visibility: hidden;
 
 }
+
+.accordion_title{
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
 
 .panel-heading{
     margin-top: -15px;
@@ -242,8 +247,14 @@ html, body{
 }
 
 .panel-collapse{
-    font-size: 0.8em
+    font-size: 0.85em
 }
+
+
+ .reviewText{
+    font-size: 0.8em;
+
+ }
 
 
 

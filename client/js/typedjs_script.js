@@ -16,7 +16,7 @@ $(function(){
             // time before backspacing
             backDelay: 400,
             // backspacing speed
-            backSpeed: 30,
+            backSpeed: 10,
 
             // show cursor
             showCursor: true,
