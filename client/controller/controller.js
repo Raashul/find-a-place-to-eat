@@ -1,10 +1,10 @@
 
 app.controller('AppCtrl',function($scope, $http, filterdata) {
 
-  $scope.searchButtonText = "Find a place to eat!"
+  $scope.searchButtonText = "Find a place to eat!";
 
-  $scope.searchClicked = 0;
 
+$scope.searchClicked=0;
 
     // ----> Code from autocomplete.js <------
     var inputFrom = document.getElementById('input');
@@ -31,11 +31,10 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
 
 
-      $scope.searchClicked += counter;
+      $scope.searchClicked = $scope.searchClicked + counter;
 
 
-
-      if($scope.searchClicked ==1){
+      if($scope.searchClicked == 1){
 
         console.log('1');
 
@@ -44,6 +43,8 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
        $scope.searchButtonText = "Not this One. Next!!!"
 
       } else{
+
+        console.log($scope.searchClicked);
 
         console.log('2');
 
@@ -189,7 +190,7 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
       var restaurant = $scope.filterdata;
 
-      $scope.reset();
+
 
 
       if(restaurant.length <= 1){
@@ -245,7 +246,7 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
             $scope.display_name = name;
             $scope.address = "Address : " + address;
 
-            $scope.name     = "Name : " + name;
+            $scope.name     =  name;
             $scope.rating   = "rating : " + rating + " / 5";
 
 
@@ -263,7 +264,7 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
       } //end of main else
 
-
+       console.log($scope.searchClicked);
   } //end of next
 
 
@@ -272,6 +273,13 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
   $scope.reset = function(){
 
+    /*
+
+    -Set all scope varibles to null
+    -hide all components such as maps, results, ratings and photo slidehow
+
+
+    */
       $scope.link           = "";
       $scope.address        = "";
       $scope.name           = "";
@@ -286,6 +294,8 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
       $scope.displayWebsite = "";
       $scope.listOfPhotos   = "";
       $scope.reviews        = "";
+
+      $scope.searchButtonText = "Find a place to eat!";
 
       document.getElementById("modify").innerHTML = "";
 
@@ -356,7 +366,7 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
           $scope.display_name = name;
           $scope.address = "Address : " + address;
 
-          $scope.name     = "Name : " + name;
+          $scope.name     =  name;
           $scope.rating   = "rating : " + rating + " / 5";;
 
 

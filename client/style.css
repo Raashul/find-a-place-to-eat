@@ -172,11 +172,11 @@ html, body{
 
 .slideshow-container {
   max-width: 1000px;
-  margin-top: 20px;
+   margin: 0 auto;
   margin-bottom: 20px;
   margin: auto;
   width: 100%;
-  margin: 0 auto;
+  margin-top: 50px;
   visibility: hidden;
 
 }
@@ -218,9 +218,13 @@ html, body{
 }
 
 #accordion{
-    margin-top: 20px;
+    margin-top: 30px;
     visibility: hidden;
 
+}
+
+#accordion_title{
+    margin-bottom: 10px;
 }
 
 .accordion_title{
@@ -248,7 +252,8 @@ html, body{
 }
 
 .panel-collapse{
-    font-size: 0.85em
+    font-size: 1em;
+    font-family: "Georgia", sans-serif;
 }
 
 
