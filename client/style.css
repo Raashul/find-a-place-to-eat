@@ -31,7 +31,7 @@ html, body{
 
 .inline {
     margin-left: 20px;
-    height: 450px;
+
     width: 100%;
 }
 
@@ -105,14 +105,13 @@ html, body{
 
 .yelp{
         margin-top: 20px;
-        height: 400px;
 
       }
 
 .yelp-background{
     margin-left: 50px;
     font-family: "Droid Sans", serif;
-    height: 100%;
+
 }
 
 
@@ -173,7 +172,7 @@ html, body{
 
 .slideshow-container {
   max-width: 1000px;
-  margin-top: 30px;
+  margin-top: 20px;
   margin-bottom: 20px;
   margin: auto;
   width: 100%;
@@ -185,13 +184,13 @@ html, body{
 .image{
   float: left;
   height: 150px;
-  width: 150px;
+  width: 180px;
   margin-left: 5px;
   margin-top: 5px;
 }
 
-.image:hover{
-    transform: scale(1.2);
+.image:active{
+    transform: scale(2.1);
 }
 
 .typed-cursor{
@@ -219,7 +218,7 @@ html, body{
 }
 
 #accordion{
-    margin-top: 30px;
+    margin-top: 20px;
     visibility: hidden;
 
 }
@@ -229,6 +228,10 @@ html, body{
     margin-bottom: 5px;
 }
 
+
+.panel{
+    height: 20px;
+}
 
 .panel-heading{
     margin-top: -15px;
@@ -257,6 +260,12 @@ html, body{
     font-size: 0.8em;
 
  }
+
+
+.block{
+    padding-left: 20px;
+    background-color: #FFFFFF;
+}
 
 
 

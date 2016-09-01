@@ -26,15 +26,6 @@ document.getElementById('reset').addEventListener('click', function(e){
 
 
 
-// -----> Function for NEXT button <-------
-document.getElementById('next').addEventListener('click', function(e){
-	map.next();
-	map = mapster.create(element, options);
-});
-
-
-
-
 //Direction button
 
 button = document.getElementById('button');

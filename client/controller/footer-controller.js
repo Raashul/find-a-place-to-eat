@@ -1,3 +1,5 @@
+//This is the controller for footer.
+//This will open urls for facebook, twitter, medium and github
 app.controller('footerController', function($scope, $window){
 	$scope.fb = function(){
 		$window.open('https://www.facebook.com/Chelsealover.Rashul', '_blank');

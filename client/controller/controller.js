@@ -1,6 +1,10 @@
 
 app.controller('AppCtrl',function($scope, $http, filterdata) {
 
+  $scope.searchButtonText = "Find a place to eat!"
+
+  $scope.searchClicked = 0;
+
 
     // ----> Code from autocomplete.js <------
     var inputFrom = document.getElementById('input');
@@ -23,17 +27,28 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
     //Funtion for the search button
     // This function will recieve data from the server, filter the data , and respond back to the DOM
-    $scope.search = function() {
+    $scope.search = function(counter) {
 
-     // newTyped();
+      $scope.searchClicked += counter;
+
+
+
+      if($scope.searchClicked ==1){
 
       //call the geocode function
       $scope.geocode($scope.place);
+       $scope.searchButtonText = "Not this One. Next!!!"
+
+      } else{
+
+        $scope.next();
+      }
 
 
     };
 
 
+    //this geocode function  with find a nearby restaurant.
     $scope.geocode = function(placeName){
 
 
@@ -56,7 +71,7 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
                   location: location,
                  // placeId: restaurant.place_id,
                   type: ['restaurant'],
-                  radius: '10000'
+                  radius: '10000' //in meters
                 };
 
                 service.nearbySearch(
@@ -64,9 +79,9 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
                  function(place, status) {
                   if (status === google.maps.places.PlacesServiceStatus.OK) {
 
-                    //filterdata is an array of buisnesses.
-                    $scope.filterdata = filterdata.filter(place);
 
+                    //filterdata will call service.js
+                    $scope.filterdata = filterdata.filter(place);   //filterdata is an array of buisnesses.
 
 
                     //this will be used for the reset button
@@ -90,10 +105,11 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
     } //end of geocode function
 
 
+
+    //this method will get the restaurant reviews and photos.
+    //This function will get called after search function
     $scope.getDetails = function(){
 
-       document.getElementById('map-canvas').style.visibility="visible";
-      document.getElementById('slideshow').style.visibility = "visible";
 
 
       var service = new google.maps.places.PlacesService(map.gMap);
@@ -183,7 +199,7 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
           restaurant = $scope.filterdata;
 
-
+          //call the getDetails method
           $scope.getDetails();
 
           var server = {location: $scope.place, restaurant: restaurant[0].name};
@@ -265,9 +281,22 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
       $scope.listOfPhotos   = "";
       $scope.reviews        = "";
 
+      document.getElementById("modify").innerHTML = "";
+
+       $scope.show = false;
+
+      document.getElementById("accordion").style.visibility = "hidden"
+      document.getElementById('map-canvas').style.visibility="hidden";
+      document.getElementById('slideshow').style.visibility = "hidden";
+
+
+
+
     }
 
 
+
+    //This method will call yelp api and retrieve relevant data about the restaurant
     $scope.callServer = function(){
 
        var server = {location: $scope.place, restaurant: $scope.restaurantName};
@@ -278,7 +307,7 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
 
 
-          var restaurant = response.businesses;
+        var restaurant = response.businesses;
 
 
 
@@ -331,8 +360,10 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
          }
 
 
-         document.getElementById("result").style.visibility = "visible"
-          document.getElementById("accordion").style.visibility = "visible"
+        document.getElementById("result").style.visibility = "visible"
+        document.getElementById("accordion").style.visibility = "visible"
+        document.getElementById('map-canvas').style.visibility="visible";
+        document.getElementById('slideshow').style.visibility = "visible";
 
 
            $scope.show = true;
