@@ -29,17 +29,23 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
     // This function will recieve data from the server, filter the data , and respond back to the DOM
     $scope.search = function(counter) {
 
+
+
       $scope.searchClicked += counter;
 
 
 
       if($scope.searchClicked ==1){
 
+        console.log('1');
+
       //call the geocode function
       $scope.geocode($scope.place);
        $scope.searchButtonText = "Not this One. Next!!!"
 
       } else{
+
+        console.log('2');
 
         $scope.next();
       }
@@ -289,6 +295,7 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
       document.getElementById('map-canvas').style.visibility="hidden";
       document.getElementById('slideshow').style.visibility = "hidden";
 
+       $scope.searchClicked = 0;
 
 
 
