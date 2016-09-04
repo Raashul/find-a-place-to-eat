@@ -143,6 +143,12 @@ html, body{
     width: 130px;
 }
 
+.image[src=""] {
+   display: none;
+   border: none;
+   height: 0px;
+   width: 0px;
+}
 
 #next {
     width:100px;
