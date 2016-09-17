@@ -11,7 +11,7 @@ app.service('filterdata', function(){
 			var item =  data[Math.floor(Math.random()*data.length)];
 
 			if(filterarray.indexOf(i) == item){
-				console.log('duplicate random found')
+				console.log('duplicate random found');
 				break;
 			}
 			else{
@@ -20,6 +20,9 @@ app.service('filterdata', function(){
 
 
 		}
+
+		console.log('from service');
+		console.log(filterarray);
 		return filterarray;
 	}
 })

@@ -76,12 +76,10 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
           var restaurant = response.businesses;
 
          //Storing all relevent data
-        var name            = restaurant[0].name
+          var name            = restaurant[0].name
 
 
-
-        localStorage.setItem('restaurantName', name);
-
+          localStorage.setItem('restaurantName', name);
 
         /*
 
@@ -101,6 +99,8 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
         var address         = restaurant[0].location.display_address;
         $scope.address = "Address : " + address;
+
+        localStorage.setItem('restaurant', address);
 
         var status          = restaurant[0].is_closed;
 
@@ -169,8 +169,6 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
                   //filterdata will call service.js
                   $scope.filterdata = filterdata.filter(place);   //filterdata is an array of buisnesses.
 
-                  //this will be used for the reset button
-                  $scope.resetR = $scope.filterdata;
 
                   //call the getdetail method.
                   $scope.getDetails();
@@ -197,20 +195,18 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
   //This function will get called after search function
   $scope.getDetails = function(){
 
-
-
     var service = new google.maps.places.PlacesService(map.gMap);
     var listOfRestaurants = $scope.filterdata;
 
 
     var id = listOfRestaurants[0].place_id;
 
-    console.log(listOfRestaurants[0]);
-
       service.getDetails({
         placeId: id
       }, function(result, status){
         if(status === google.maps.places.PlacesServiceStatus.OK){
+
+          console.log(result);
 
           $scope.restaurantName = result.name;
 
@@ -298,6 +294,7 @@ $scope.reset = function(){
 
     $scope.show = false;
 
+    document.getElementById("result").style.visibility = "hidden"
     document.getElementById("accordion").style.visibility = "hidden"
     document.getElementById('map-canvas').style.visibility="hidden";
     document.getElementById('slideshow').style.visibility = "hidden";
@@ -353,6 +350,8 @@ $scope.reset = function(){
 
       var address         = restaurant[0].location.display_address;
       $scope.address = "Address : " + address;
+
+       localStorage.setItem('restaurant', address);
 
       var status          = restaurant[0].is_closed;
 

@@ -39,17 +39,6 @@
 					lng: opts.lng
 				}
 
-				// if(opts.address){
-				// 	console.log(opts.address);
-				// 	console.log('Address recieved in mapster');
-
-				// 		lat: opts[0].geometry.location.lat();
-				// 		lng: opts[0].geometry.location.lng();
-
-				// 	console.log(opts.position.lat);
-				// 	console.log(opts.position.lng);
-				// }
-
 
 				marker = this._createMarker(opts);
 				this._addMarker(marker);
@@ -102,104 +91,7 @@
 				    this.markers[i].setMap(null);
 				  }
 				  this.markers.length = 0;
-				  document.getElementById("result").style.visibility = "hidden";
-			},
-
-
-			photos: function(){
-
-				var restaurantAddress = localStorage.getItem('restaurant');
-
-				var geocoder = new google.maps.Geocoder();
-				geocoder.geocode({
-							address: document.getElementById('input').value
-						}, function(results, status){
-							if(status === google.maps.GeocoderStatus.OK){
-
-								restaurant = results[0];
-
-								var restaurantName = localStorage.getItem('restaurantName');
-
-								console.log(restaurant);
-								console.log(restaurant.place_id);
-
-								//"ChIJVclpFoMAw4kR_jHiNG7UwcA"
-								//"ChIJP9hCFoMAw4kRunv8VAmhXJI"
-
-
-									var location = {
-										lat: restaurant.geometry.location.lat(),
-										lng: restaurant.geometry.location.lng()
-									};
-
-								var service = new google.maps.places.PlacesService(map.gMap);
-
-								var request = {
-									location: location,
-							   //	placeId: restaurant.place_id,
-							   	type: ['restaurant'],
-							   	radius: '500'
-							  };
-				        service.nearbySearch(
-				         request,
-				         function(place, status) {
-				          if (status === google.maps.places.PlacesServiceStatus.OK) {
-				          	console.log(place);
-
-				          	var id = place[0].place_id;
-
-				          	service.getDetails({
-				          		placeId: id
-				          	}, function(result, status){
-				          		if(status === google.maps.places.PlacesServiceStatus.OK){
-				          			console.log(result);
-
-				          			for(var i=0; i < result.photos.length; i++){
-				          				console.log(result.photos[i].getUrl({'maxWidth': 400, 'maxHeight': 400}));
-				          			}
-
-				          		}
-				          	})
-
-
-				          	// if(place.photos){
-				          	// 	console.log('below are photos');
-				          	// 	for (var i = 0; i < place.photos.length; i++) {
-				          	// 		console.log(place.photos[i].getUrl({'maxWidth': 400, 'maxHeight': 400}));
-				          	// 	};
-				          	// }
-
-
-							}
-						})
-
-
-
-          		//localStorage.setItem('photo', place.photos[i].getUrl({'maxWidth': 400, 'maxHeight': 400}));
-
-
-
-
-          }
-        });
-
-
-
-			},
-
-
-				//Function for next button: This function will clear all markers but not hide result <div>
-			next : function(){
-
-
-				 //	setMapOnAll(null);
-        	for (var i = 0; i < this.markers.length; i++ ) {
-				    this.markers[i].setMap(null);
-				  }
-				  this.markers.length = 0;
 				  document.getElementById("modify").innerHTML = "";
-
-				      console.log('hi from jquery');
 			},
 
 

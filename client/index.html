@@ -2,8 +2,6 @@
 <head>
 	<title>Map</title>
 
-
-
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
 	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -11,8 +9,7 @@
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 
-	<link rel="stylesheet" type="text/css"
-          href="https://fonts.googleapis.com/css?family=Tangerine|Inconsolata|Droid+Sans">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Tangerine|Inconsolata|Droid+Sans">
 
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -22,7 +19,6 @@
 <div ng-controller = "AppCtrl">
 
 	<div class="mainContainer">
-
 		<div class="container" ng-hide="myValue">
 
 			<div class="intro">
@@ -35,14 +31,10 @@
 
 				</div>
 
-
 			</div>
 
-
 			<div class="settings">
-
 				<div class="row">
-
 					<div class="col-md-6 col-md-offset-3 option1">
 					<input id="input" placeholder = "Type in your adddres. Let's find you a place to eat." type="text" size="70" ng-model="input" googleplace>
 					</div>
@@ -62,9 +54,7 @@
 
 						<button id="reset" class="btn btn-danger"  ng-show = "show" ng-click="reset()">Reset my address</button>
 						</div>
-
 					</div>
-
 
 				</div>
 
@@ -75,9 +65,7 @@
 					  <strong>Failed!</strong> {{alert_msg}}
 					</div>
 
-
 			</div>
-
 
 			<div id="result">
 
@@ -87,9 +75,7 @@
 				<strong id="modify"></strong>
 			</div>
 
-
 			<div class="row inline">
-
 
 					<div class="col-md-6 yelp">
 
@@ -153,9 +139,7 @@
 					</div>
 
 
-
 					</div>
-
 
 
 				</div>
@@ -181,49 +165,47 @@
 
 
 				  <div class="mySlides">
-
-				    	<a href="" target="_blank"><img ng-src="{{listOfPhotos[0]}}" onerror="this.style.display='none'" class="image" > </a>
-
-				  </div>
-
-
-				  <div class="mySlides">
-				    	<a href="" target="_blank"><img ng-src="{{listOfPhotos[1]}}" class="image" > </a>
+				    	<img ng-src="{{listOfPhotos[0]}}" class="image">
 
 				  </div>
 
 
 				  <div class="mySlides">
-				    	<a href="" target="_blank"><img ng-src="{{listOfPhotos[2]}}" class="image" > </a>
+				    	<img ng-src="{{listOfPhotos[1]}}" class="image" >
+
+				  </div>
+
+				  <div class="mySlides">
+				    	<img ng-src="{{listOfPhotos[2]}}" class="image" >
 				  </div>
 
 
 				  <div class="mySlides">
-				    	<a href="" target="_blank"><img ng-src="{{listOfPhotos[3]}}"  class="image" > </a>
+				    	<img ng-src="{{listOfPhotos[3]}}" class="image" >
 				  </div>
 
 				   <div class="mySlides">
-				    <a href="" target="_blank"><img ng-src="{{listOfPhotos[4]}}"  class="image" > </a>
+				    <img ng-src="{{listOfPhotos[4]}}" class="image" >
 				  </div>
 
 				   <div class="mySlides">
-				    	<a href="" target="_blank"><img ng-src="{{listOfPhotos[5]}}" class="image" > </a>
+				    	<img ng-src="{{listOfPhotos[5]}}" class="image" >
 				  </div>
 
 				  <div class="mySlides">
-				    	<a href="" target="_blank"><img ng-src="{{listOfPhotos[6]}}"  class="image" > </a>
+				    	<img ng-src="{{listOfPhotos[6]}}"  class="image" >
 				  </div>
 
 				  <div class="mySlides">
-				    	<a href="" target="_blank"><img ng-src="{{listOfPhotos[7]}}" class="image" > </a>
+				    	<img ng-src="{{listOfPhotos[7]}}" class="image" >
 				  </div>
 
 				  <div class="mySlides">
-				    	<a href="" target="_blank"><img ng-src="{{listOfPhotos[8]}}" class="image" > </a>
+				    	<img ng-src="{{listOfPhotos[8]}}" class="image" >
 				  </div>
 
 				  <div class="mySlides">
-				    	<a href="" target="_blank"><img ng-src="{{listOfPhotos[9]}}"  class="image" > </a>
+				    	<img ng-src="{{listOfPhotos[9]}}"  class="image" >
 				  </div>
 
 

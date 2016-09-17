@@ -32,12 +32,12 @@ button = document.getElementById('button');
 
 	button.addEventListener('click', function(e){
 
+		map.clear();
+
 	geocoder.geocode({
 		address: input.value
 	}, function(results, status){
 		if(status === google.maps.GeocoderStatus.OK){
-
-
 
 			var result = results[0];
 

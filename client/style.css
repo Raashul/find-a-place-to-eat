@@ -1,13 +1,19 @@
 html, body{
     margin: 0;
     padding: 0;
+
 }
 
 
 .mainContainer{
-    background-color: #EFEFEF;
 
+    background-color: #938F8F;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
+
+
 
 
 
@@ -184,7 +190,6 @@ html, body{
   width: 100%;
   margin-top: 50px;
   visibility: hidden;
-
 }
 
 .image{
@@ -200,8 +205,8 @@ html, body{
 }
 
 .typed-cursor{
-            opacity: 1;
-            font-size: 1.2em;
+
+            font-size: 2em;
             -webkit-animation: blink 0.7s infinite;
             -moz-animation: blink 0.7s infinite;
             -ms-animation: blink 0.7s infinite;
@@ -219,7 +224,8 @@ html, body{
 }
 
 #typed{
-    font-size: 1.6em;
+    font-size: 2em;
+    font-weight: bold;
     font-family: "Inconsolata", serif;
 }
 
