@@ -1,3 +1,21 @@
+<!--
+
+#Disclaimer ^^
+
+This Project does not have proper folder structure
+
+The Aim of this project was to get familar with GOOGLE and YELP API
+
+Very Minimal Modular Programming is Used.
+
+
+- This is the main/only HTML file.
+
+
+
+-->
+
+
 <html>
 <head>
 	<title>Map</title>
@@ -60,10 +78,10 @@
 
 				<hr>
 
-					<div class="alert alert-danger" ng-show = "alertShow">
-					  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-					  <strong>Failed!</strong> {{alert_msg}}
-					</div>
+				<div class="alert alert-danger" ng-show = "alertShow">
+				  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				  <strong>Failed!</strong> {{alert_msg}}
+				</div>
 
 			</div>
 
@@ -124,6 +142,7 @@
 						      {{reviews[1].text}}
 						    </div>
 						  </div>
+
 						  <div class="panel panel-default">
 						    <div class="panel-heading" role="tab" id="headingThree">
 						      <h4 class="panel-title">
@@ -146,16 +165,10 @@
 
 
 				<div class="col-md-6">
-
-
 					<div id="map-canvas">
-
 					</div>
 
 				</div>
-
-
-
 
 		</div>
 
@@ -163,56 +176,48 @@
 
 		<div class="slideshow-container" id="slideshow">
 
+		  <div class="mySlides">
+		    	<img ng-src="{{listOfPhotos[0]}}" class="image">
 
-				  <div class="mySlides">
-				    	<img ng-src="{{listOfPhotos[0]}}" class="image">
+		  </div>
 
-				  </div>
+		  <div class="mySlides">
+		    	<img ng-src="{{listOfPhotos[1]}}" class="image" >
+		  </div>
 
+		  <div class="mySlides">
+		    	<img ng-src="{{listOfPhotos[2]}}" class="image" >
+		  </div>
 
-				  <div class="mySlides">
-				    	<img ng-src="{{listOfPhotos[1]}}" class="image" >
+		  <div class="mySlides">
+		    	<img ng-src="{{listOfPhotos[3]}}" class="image" >
+		  </div>
 
-				  </div>
+		   <div class="mySlides">
+		    <img ng-src="{{listOfPhotos[4]}}" class="image" >
+		  </div>
 
-				  <div class="mySlides">
-				    	<img ng-src="{{listOfPhotos[2]}}" class="image" >
-				  </div>
+		   <div class="mySlides">
+		    	<img ng-src="{{listOfPhotos[5]}}" class="image" >
+		  </div>
 
+		  <div class="mySlides">
+		    	<img ng-src="{{listOfPhotos[6]}}"  class="image" >
+		  </div>
 
-				  <div class="mySlides">
-				    	<img ng-src="{{listOfPhotos[3]}}" class="image" >
-				  </div>
+		  <div class="mySlides">
+		    	<img ng-src="{{listOfPhotos[7]}}" class="image" >
+		  </div>
 
-				   <div class="mySlides">
-				    <img ng-src="{{listOfPhotos[4]}}" class="image" >
-				  </div>
+		  <div class="mySlides">
+		    	<img ng-src="{{listOfPhotos[8]}}" class="image" >
+		  </div>
 
-				   <div class="mySlides">
-				    	<img ng-src="{{listOfPhotos[5]}}" class="image" >
-				  </div>
+		  <div class="mySlides">
+		    	<img ng-src="{{listOfPhotos[9]}}"  class="image" >
+		  </div>
 
-				  <div class="mySlides">
-				    	<img ng-src="{{listOfPhotos[6]}}"  class="image" >
-				  </div>
-
-				  <div class="mySlides">
-				    	<img ng-src="{{listOfPhotos[7]}}" class="image" >
-				  </div>
-
-				  <div class="mySlides">
-				    	<img ng-src="{{listOfPhotos[8]}}" class="image" >
-				  </div>
-
-				  <div class="mySlides">
-				    	<img ng-src="{{listOfPhotos[9]}}"  class="image" >
-				  </div>
-
-
-
-			</div>
-
-
+	</div>
 
 	</div>
 
@@ -253,6 +258,9 @@
 
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
 
+
+
+	<!--Javascipt files locally -->
 	<script src="app.js"></script>
 	<script src="js/typed.js" type="text/javascript"></script>
   <script src="js/typedjs_script.js"></script>
@@ -267,10 +275,5 @@
 	<script src="js/map-options.js"> </script>
 	<script src="js/script.js"> </script>
 
-
-
-
-
-</body>
 </body>
 </html>

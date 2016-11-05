@@ -144,26 +144,24 @@
 
 					function callback(response, status) {  //function to be called once distance is calculated
 
-					    if(status=="OK") {
+				    if(status=="OK") {
 
-					    	console.log("in direction callback function");
+				    	console.log("in direction callback function");
 
-					    	//this is the total distance between two points
-					   	var distance =	response.rows[0].elements[0].distance.text;
+				    	//this is the total distance between two points
+				   	var distance =	response.rows[0].elements[0].distance.text;
 
-					   	//this is the total time between two points by chosen vehicle type
-					    	var time = response.rows[0].elements[0].duration.text;
-
-
-					    	document.getElementById("modify").innerHTML = "Duration: "  + distance + ". Estimated time is " + time + " by car";
+				   	//this is the total time between two points by chosen vehicle type
+				    	var time = response.rows[0].elements[0].duration.text;
 
 
-					    } else {
-					        alert("Error: Try Again ");
-					    }
-					}
+				    	document.getElementById("modify").innerHTML = "Duration: "  + distance + ". Estimated time is " + time + " by car";
 
 
+				    } else {
+				        alert("Error: Try Again ");
+				    }
+				}
 
 
 			} // end of _onService

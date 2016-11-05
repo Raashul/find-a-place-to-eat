@@ -1,3 +1,18 @@
+// This is the main Controller.
+
+/*
+
+  #Disclaimer  ----------- ^^
+
+This Project does not have proper folder structure
+
+The Aim of this project was to get familar with GOOGLE and YELP API
+
+Very Minimal Modular Programming is Used.
+
+
+*/
+
 
 app.controller('AppCtrl',function($scope, $http, filterdata) {
 
@@ -206,7 +221,6 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
       }, function(result, status){
         if(status === google.maps.places.PlacesServiceStatus.OK){
 
-          console.log(result);
 
           $scope.restaurantName = result.name;
 
@@ -217,19 +231,14 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
 
           if(result.reviews){
-            console.log('reviews are ' + result.reviews.length);
-             //document.getElementById('accordion').style.visibility = "visible";
-            //store reviews in scope variable
+
             $scope.reviews      = result.reviews;
           }
 
         if(result.photos){
           $scope.listOfPhotos = [];
 
-          // if($scope.listOfPhotos.length >=1){
-          //   console.log('remove old photos')
-          //    $scope.listOfPhotos   = "";
-          // }
+
 
           for(var i=0; i < result.photos.length; i++){
             var photos = result.photos[i].getUrl({'maxWidth': 600, 'maxHeight': 600});
@@ -384,21 +393,11 @@ $scope.reset = function(){
       document.getElementById('map-canvas').style.visibility="visible";
       document.getElementById('slideshow').style.visibility = "visible";
 
-
       $scope.show = true;
-
-
 
     });
 
   }
-
-
-
-
-
-
-
 
 
 });

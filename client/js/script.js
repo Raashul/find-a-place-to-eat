@@ -64,7 +64,7 @@ button = document.getElementById('button');
 				restaurant = results[0];
 
 				restaurant = restaurant.formatted_address;
-				//console.log('final destination is ' + restaurant);
+
 				find(result, restaurant);
 			}
 		})

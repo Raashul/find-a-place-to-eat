@@ -20,9 +20,6 @@ app.service('filterdata', function(){
 
 
 		}
-
-		console.log('from service');
-		console.log(filterarray);
 		return filterarray;
 	}
 })
