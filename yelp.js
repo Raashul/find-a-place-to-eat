@@ -12,12 +12,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 var Yelp = require('yelp');
 
 //use your yelp credentials
-var yelp = new Yelp({
-  consumer_key: '',
-  consumer_secret: '',
-  token: '',
-  token_secret: '',
-});
+	var yelp = new Yelp({
+		  consumer_key: 'WfydRv01aFXZWK6TaAJOnQ',
+		  consumer_secret: 'oh9wyIny60Vc_edK4MBjCDHL0Bs',
+		  token: 'n7GVnnmsVoXxjoRdP9fxeDpmJ17DqzVk',
+		  token_secret: 'Y_ZibdstQn15p5eTjequFnFEo_A',
+		});
 
 
 //Posting data
