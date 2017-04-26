@@ -213,7 +213,6 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
     var service = new google.maps.places.PlacesService(map.gMap);
     var listOfRestaurants = $scope.filterdata;
 
-
     var id = listOfRestaurants[0].place_id;
 
       service.getDetails({
@@ -221,11 +220,10 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
       }, function(result, status){
         if(status === google.maps.places.PlacesServiceStatus.OK){
 
+          console.log(result);
 
           $scope.restaurantName = result.name;
-
           $scope.callServer();
-
           //display website
           $scope.website        =  result.website;
 
@@ -237,8 +235,6 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
         if(result.photos){
           $scope.listOfPhotos = [];
-
-
 
           for(var i=0; i < result.photos.length; i++){
             var photos = result.photos[i].getUrl({'maxWidth': 600, 'maxHeight': 600});
@@ -324,24 +320,15 @@ $scope.reset = function(){
     $http.post("/getyelp", server)
       .success(function(response){
 
-
-
       var restaurant = response.businesses;
-
-
-
       var name = restaurant[0].name
 
-
        //Storing all relevent data
-
       /*
-
           -The order of scope variables is coded according to what is
           - displayed in the website
 
         */
-
       $scope.displayWebsite = "Click to visit website";
 
       $scope.web            = "Website : "
@@ -351,8 +338,6 @@ $scope.reset = function(){
       $scope.rating_img   = restaurant[0].rating_img_url;
 
       $scope.snippet        = restaurant[0].snippet_text;
-
-
 
       $scope.name     =  name;
       $scope.display_name = name;

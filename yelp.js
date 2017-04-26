@@ -36,6 +36,8 @@ app.post('/getyelp', function(req, res){
 	yelp.search({ location: yelpLocation, term: searchRestaurant})
 	.then(function (data) {
 
+		console.log(data[0]);
+
 		console.log('Sending data to controller');
 		res.json(data); // I will return all the data recieved from YELP API. I will filter the data in controller.js
 
