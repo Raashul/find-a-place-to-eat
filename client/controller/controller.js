@@ -17,8 +17,6 @@ Very Minimal Modular Programming is Used.
 app.controller('AppCtrl',function($scope, $http, filterdata) {
 
   $scope.searchButtonText = "Find a place to eat!";
-
-
   $scope.searchClicked=0;
 
   // ----> Code from autocomplete.js <------
@@ -34,7 +32,7 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
     var placeName = place.formatted_address;
 
     $scope.place = placeName;
-
+    console.log('place', $scope.place);
 
 
   }); //end of autocomplete function.
@@ -43,10 +41,7 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
   //Funtion for the search button
   // This function will recieve data from the server, filter the data , and respond back to the DOM
   $scope.search = function(counter) {
-
     $scope.searchClicked = $scope.searchClicked + counter;
-
-
     if($scope.searchClicked == 1){
 
     //call the geocode function
@@ -87,13 +82,13 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
       $http.post("/getyelp", server)
         .success(function(response){
+          console.log('from yelp');
+          console.log(response);
 
           var restaurant = response.businesses;
 
          //Storing all relevent data
           var name            = restaurant[0].name
-
-
           localStorage.setItem('restaurantName', name);
 
         /*
@@ -103,11 +98,8 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
 
         */
 
-
         var rating_url      =  restaurant[0].location.rating_img_url;
         $scope.rating_img   = restaurant[0].rating_img_url;
-
-        $scope.snippet        = restaurant[0].snippet_text;
 
         $scope.name     =  name;
         $scope.display_name = name;
@@ -220,7 +212,6 @@ app.controller('AppCtrl',function($scope, $http, filterdata) {
       }, function(result, status){
         if(status === google.maps.places.PlacesServiceStatus.OK){
 
-          console.log(result);
 
           $scope.restaurantName = result.name;
           $scope.callServer();
@@ -313,14 +304,13 @@ $scope.reset = function(){
 
   //This method will call yelp api and retrieve relevant data about the restaurant
   $scope.callServer = function(){
-
      var server = {location: $scope.place, restaurant: $scope.restaurantName};
 
 
     $http.post("/getyelp", server)
       .success(function(response){
-
-      var restaurant = response.businesses;
+        console.log('response is', response);
+      var restaurant = response;
       var name = restaurant[0].name
 
        //Storing all relevent data
@@ -330,9 +320,7 @@ $scope.reset = function(){
 
         */
       $scope.displayWebsite = "Click to visit website";
-
       $scope.web            = "Website : "
-
 
       var rating_url      =  restaurant[0].location.rating_img_url;
       $scope.rating_img   = restaurant[0].rating_img_url;
